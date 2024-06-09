@@ -1,0 +1,57 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+nav {
+    background-color: rgb(230, 230, 255);
+    display: flex;
+    text-align: center;
+    vertical-align: middle;    
+}
+
+button {
+    background-color: lightblue;
+    padding: 4px;
+}
+
+#slogan-background {
+    display: table;
+    background-image: url(https://images.pexels.com/photos/636353/pexels-photo-636353.jpeg);
+	height: 50vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#slogan-text {
+    color: white;
+    font-size: 26px;
+    border: 1px;
+    width: 50%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+i {
+    font-size: 40px;
+    color: lightskyblue; 
+}
+
+.row {
+    background-color: rgb(230, 230, 255);
+height: 400px;
+    display: flex;
+flex-direction: row;
+justify-content: center;
+text-align: center;
+}
+
+.icons {
+    width: 27%;
+}
+
+p {
+    color: grey;
+}
