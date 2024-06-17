@@ -28,7 +28,10 @@ class Chartreux(Cat):
     def sing(self, sounds):
         return f'{sounds}'
     
-all_cats = [Siamese, Bengal, Chartreux]
-sara_pets = Pets(Cat)
-sara_pets.walk()
+cat1 = Siamese("Kitty", "2")
+cat2 = Bengal("Lyla", "5")
+cat3 = Chartreux("Helga", "8")
 
+all_cats = [cat1, cat2, cat3]
+sara_pets = Pets(all_cats)
+sara_pets.walk()
