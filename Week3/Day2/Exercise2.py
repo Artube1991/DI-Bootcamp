@@ -14,9 +14,12 @@ class Dog:
         speed = self.weight / self.age * 10
         return speed
     
-    def fight(self):
-        fight_power = speed * self.weight
-        return fight_power
+   # def fight(self, other_dog):
+    #    self.s
+     #   for dog1, dog2, dog3 in Dog:
+      #      if speed > speed 
+        
+        
 
 dog1 = Dog("George", 4, 10)
 dog2 = Dog("Theodor", 6, 8)
