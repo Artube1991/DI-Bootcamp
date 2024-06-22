@@ -1,10 +1,8 @@
-import json
-
 class Text:
     def __init__(self, story):
         self.story = story
         
-    def frequencies(story):
+    def frequencies(self, story):
         sent_dict = story.split()
         sent_dict = {}
 
@@ -19,5 +17,9 @@ class Text:
         for word, frequency in sent_dict.items():
             print(f"{word}: {frequency}")
 
+        for word, frequency in sent_dict.items():
+            if frequency == 1:
+                print(f"{word} is one of the commom words in the text")
+       
 ggg = Text('A good book would sometimes cost as much as a good house')
 ggg.frequencies()
