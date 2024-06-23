@@ -21,3 +21,6 @@ VALUES
 	('Omer', 'Simpson', '1980-10-03',1); 
 
 SELECT count (*) FROM actors
+
+-- it is impossible to add into the table new actor with any empty fields, because
+-- while creating the table we set NOT NULL in all the columns, this means that the value cannot be empty
