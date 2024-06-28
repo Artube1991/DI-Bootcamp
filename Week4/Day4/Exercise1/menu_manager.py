@@ -35,8 +35,9 @@ class MenuManager:
         query = "select * from menu_items"
         cursor.execute(query)
         connection.commit()
-        rows = (cursor.fetchall())
-        print(rows)
+        rows = cursor.fetchall()
+        print('\n'.join(str(value) for value in rows))
+
 
 item1 = MenuManager("crabsburger")
 items = MenuManager.all_items()

@@ -1,8 +1,8 @@
 import random
 
 number1 = int(input("Provide a number from 1 to 100: "))
-number2 = random.randint(1, 100)
-def comparing(number1, number2):
+def comparing(number1):
+    number2 = random.randint(1, 100)
     if number1 < number2:
         print("Your number is too small.")
         print(number2)
@@ -13,4 +13,4 @@ def comparing(number1, number2):
         print("Your number is too big.")
         print(number2)
 
-comparing(number1, number2) 
+comparing(number1) 
