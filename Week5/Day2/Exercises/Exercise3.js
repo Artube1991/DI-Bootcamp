@@ -1,5 +1,5 @@
-function changeEnough(itemPrice, [a, b, c, d]) {
-    if (itemPrice < (a*0.25 + b*0.10 + c*0.05 + d*0.01)) {
+function changeEnough(itemPrice, arr) {
+    if (itemPrice < (arr[0]*0.25 + arr[1]*0.10 + arr[2]*0.05 + arr[3]*0.01)) {
         return true
     }
     else {

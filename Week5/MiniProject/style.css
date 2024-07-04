@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    display: grid;
+    grid-template-areas: "sidebar container container container container container";
+    font-family: sans-serif;
+    font-size: 10px;
+    width: 100%;
+  }
+
+.sidebar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-area: sidebar;
+    background-color: grey;
+}
+
+.boxcolor {
+    display: grid;
+    place-items: center;
+}
+
+    .box {
+    background-color: skyblue;
+    /* Размещаем контейнеры по центру */
+    display: grid;
+    place-items: center;
+    height: 3vh;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+  }
+
+  .container {
+    display: grid;
+    grid-area: container;
+    grid-template-columns: repeat(50, 1fr);
+  }
+
+  .button {
+    grid-column: 1 / 4;
+  }

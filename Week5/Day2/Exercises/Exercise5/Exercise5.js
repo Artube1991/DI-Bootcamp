@@ -6,6 +6,15 @@ console.log(li);
 
 document.getElementById("name").textContent = "Richard";
 
+const ul = document.getElementsByTagName('ul')
+// ul[0].firstElementChild.innerText = 'Alex'
+
+// ul[1].firstElementChild.innerText = 'Alex'
+
+for (let i of ul) {
+    i.firstElementChild.innerText = 'Alex'
+}
+
 // let to_delete = document.getElementById('to_delete')
 //to_delete.remove()
 
@@ -17,11 +26,15 @@ parent_thing.removeChild(child_thing);
 /*let elem = document.getElementsByTagName('ul')[0];
 elem.classList.add('student_list');*/
 
-let elem_two = document.getElementsByTagName('ul')[1];
-elem_two.classList.add('university', 'attendace');
+for (let i of ul) {
+    i.classList.add('student_list')
+}
+
+// let elem_two = document.getElementsByTagName('ul')[1];
+// elem_two.classList.add('university', 'attendace');
 
 div.style.backgroundColor = "lightblue";
 div.style.padding = "20px 20px 20px 20px";
-document.getElementById("not_display").style.display = "none";
-document.getElementById("name").style.border = "2px solid black";
-document.getElementsByTagName("body").style.fontSize = "x-large";
+ul[1].lastElementChild.style.display = "none";
+ul[0].lastElementChild.style.border = "2px solid black";
+document.getElementsByTagName("body")[0].style.fontSize = "x-large";
