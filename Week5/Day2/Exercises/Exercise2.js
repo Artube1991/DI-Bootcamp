@@ -15,10 +15,25 @@ const prices = {
 }
 
 shopping_list = Array("banana", "orange", "apple");
+item_to_buy = new Array();
 price_list = new Array();
 let price = 0
-let item = 0
 
-    for (item in shopping_list) {
-            console.log(item)
+function my_bill() {
+for (fruit of shopping_list) {
+    if (stock[fruit] > 0) {
+        item_to_buy.push(fruit)
+    } 
+    else {
+
         }
+}
+
+for (things of item_to_buy) {
+    price = price + prices[things];
+}
+
+console.log(price)
+}
+
+my_bill()
