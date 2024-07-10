@@ -23,3 +23,13 @@ video_watcher_4.watch()
 
 video_watcher_5 = new Video("Truth about Migdal Haemek", "AnyaAndAlex", "1493")
 video_watcher_5.watch()
+
+// arr = [video_watcher, video_watcher_2, video_watcher_3, video_watcher_4, video_watcher_5]
+
+// arr_titles = []
+
+// for (obj in arr) {
+//     arr_titles.push(obj.title)
+// }
+
+// console.log(arr_titles)
