@@ -73,12 +73,9 @@ const robots = [
 
 console.log(robots)
 
-let search_request = ""
-
-const searchResult = robots.filter(function(robots) {
-    return robots.name.includes(search_request)
-    })
-    console.log(searchResult)
+// for (let index = 0; index < robots.length; index++) {
+//     cards[index].appendChild(robotNames[index]);
+// }
 
 const container = document.getElementsByClassName("container")
 const cards = document.getElementsByClassName("card")
@@ -86,8 +83,23 @@ const robotNames = document.getElementsByClassName("robotname")
 const robotEmails = document.getElementsByClassName("robotemail")
 const search = document.getElementById("search")
 
+// search_request = ""
+// console.log(search_request)
 
-for (let index = 0; index < searchResult.length; index++) {
+
+// const searchResult = robots.filter(function(robots) {
+//     return robots.name.includes(search_request)
+//     })
+//     console.log(searchResult)
+
+
+
+function get_cards(search_request) {
+    const searchResult = robots.filter(function(robots) {
+        return robots.name.toLocaleLowerCase().includes(search_request)
+        })
+        console.log(searchResult)
+    for (let index = 0; index < searchResult.length; index++) {
     const element = document.createElement("div");
     element.classList.add("card");
     const element_4 = document.createElement("img");
@@ -104,17 +116,19 @@ for (let index = 0; index < searchResult.length; index++) {
     element_3.classList.add("robotemail");
     element.appendChild(element_3);
     element_3.textContent = searchResult[index].email;
-    // cards[index].textContent = robots[index].name + robots[index].email;
-    // cards[index].appendChild(robots[index].image)
+}
 }
 
-// for (let index = 0; index < robots.length; index++) {
-//     cards[index].appendChild(robotNames[index]);
-// }
+get_cards("")
 
-search.addEventListener("click", showResults)
 
-function showResults() {
-    container[0].remove(cards);
-}
+search.addEventListener("keyup", showResults)
 
+function showResults(event) {
+    // container[0].remove();
+    container[0].innerHTML = "";
+    const value = event.target.value;
+    console.log(value);
+    get_cards(value.toLowerCase())
+    }
+    
