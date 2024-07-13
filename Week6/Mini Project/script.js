@@ -82,6 +82,7 @@ const cards = document.getElementsByClassName("card")
 const robotNames = document.getElementsByClassName("robotname")
 const robotEmails = document.getElementsByClassName("robotemail")
 const search = document.getElementById("search")
+const images = document.getElementsByClassName("images")
 
 // search_request = ""
 // console.log(search_request)
@@ -103,6 +104,7 @@ function get_cards(search_request) {
     const element = document.createElement("div");
     element.classList.add("card");
     const element_4 = document.createElement("img");
+    element_4.classList.add("images");
     element_4.src = searchResult[index].image;
     element_4.alt = "That's our robots!";
     element_4.classList.add("robotimage");

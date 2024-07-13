@@ -1,4 +1,68 @@
-.container {
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
     background-image: url("./circuit-pattern.png");
     background-repeat: repeat;
+    background-color: blueviolet;
+}
+
+.nav {
+    display: inline-block;
+    background-color: lightgreen;
+    height: 90px;
+    padding: 15px;
+    font-size: 35px;
+    align-content: center;
+    width: 100%;
+}
+
+#search {
+    font-size: 30px;
+}
+
+.container {
+    display: flex;
+	flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; */
+    justify-content: center;
+    align-self: center;
+    padding: 5%;
+}
+
+.card {
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+    background-image: url("./card-pattern.png");
+    background-color: lightskyblue;
+    width: 400px;
+    padding: 20px;
+    border-radius: 5%;
+    font-family: sans-serif;
+}
+
+.images {
+    border-radius: 100%;
+    background-color: darkslateblue;
+}
+
+.robotname {
+    font-weight: bold;
+    font-size: 25px;
+    padding: 2px;
+    color: darkslategray;
+}
+
+.robotemail {
+    font-size: 18px;
+    padding: 2px;
+    color: darkslategray;
 }
