@@ -1,5 +1,5 @@
 let url = "https://api.giphy.com/v1/gifs/search?q=sun&rating=g&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My&limit=10&offset=2"
-
+// I get the necessary information by editing the HTTP request in the link above (on line 1)
 // let options = {
 //     method: "GET",
 //     headers: {
