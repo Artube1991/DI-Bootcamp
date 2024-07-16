@@ -25,3 +25,4 @@ fetch(url)
     .catch((error) => {
         console.log(`We have the error: ${error}`)
     });
+
