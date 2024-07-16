@@ -3,14 +3,25 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
 }
+async function getLoadingGIF() {
+const load = await fetch("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css")
+if (load.ok) {
+    let load_data = await load;
+    console.log(load_data) 
+}
+}
+getLoadingGIF()
 
-
+const button = document.getElementById("button");
+button.addEventListener("click", characters)
 
 async function characters() {
     let number_char = getRandomInt(1, 84);
     let info_container = document.getElementById("info");
+    info_container.innerHTML = "";
     let name = document.createElement("h1");
     info_container.appendChild(name);
+    name.innerHTML = '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> <p>Loading...</p>';
     let height = document.createElement("p");
     info_container.appendChild(height);
     let gender = document.createElement("p");
@@ -36,7 +47,7 @@ async function characters() {
 
 }
 
-characters()
+// characters()
 
 function characters2() {
 let number_char2 = getRandomInt(1, 84);
