@@ -3,14 +3,6 @@ function getRandomInt(min, max) {
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min);
 }
-async function getLoadingGIF() {
-const load = await fetch("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css")
-if (load.ok) {
-    let load_data = await load;
-    console.log(load_data) 
-}
-}
-getLoadingGIF()
 
 const button = document.getElementById("button");
 button.addEventListener("click", characters)
@@ -37,37 +29,47 @@ async function characters() {
         properties = data.result.properties
         console.log(properties)
     } else {
-        throw new Error("Wrong Character")
+        throw new Error(name.textContent = "Oh no! This character isn't available!")
     }
     name.textContent = properties.name;
-    height.textContent = properties.height;
-    gender.textContent = properties.gender;
-    birth_year.textContent = properties.birth_year;
-    homeworld.textContent = properties.homeworld;
+    height.textContent = "Height: " + properties.height;
+    gender.textContent = "Gender: " + properties.gender;
+    birth_year.textContent = "Birth Year: "+ properties.birth_year;
 
-}
-
-// characters()
-
-function characters2() {
-let number_char2 = getRandomInt(1, 84);
-const response = fetch(`https://www.swapi.tech/api/people/${number_char2}`)
-    .then((response) => {
-    if (response.ok){
-        return response.json()
-    } else {
-        throw new Error("character in not available")
+    let name_planet;
+    const home = await fetch(properties.homeworld)
+    if (home.ok) {
+        let data_planet = await home.json();
+        name_planet = data_planet.result.properties.name;
+        console.log(name_planet);
     }
-    })
-    .then((new_obj) => {
-        console.log(new_obj);
-        // name.textContent = new_obj["result"]["properties"]["name"];
+    else {
+        throw new Error(homeworld.textContent = "The planet isn't available")
+    }
 
-
-    })
-    .catch((error) => {
-        console.log(`We have the error: ${error}`)
-    });
+    homeworld.textContent = "Homeworld: " + name_planet;
 }
 
-characters2()
+
+// function characters2() {
+// let number_char2 = getRandomInt(1, 84);
+// const response = fetch(`https://www.swapi.tech/api/people/${number_char2}`)
+//     .then((response) => {
+//     if (response.ok){
+//         return response.json()
+//     } else {
+//         throw new Error("character in not available")
+//     }
+//     })
+//     .then((new_obj) => {
+//         console.log(new_obj);
+//         name.textContent = new_obj["result"]["properties"]["name"];
+
+
+//     })
+//     .catch((error) => {
+//         console.log(`We have the error: ${error}`)
+//     });
+// }
+
+// characters2()

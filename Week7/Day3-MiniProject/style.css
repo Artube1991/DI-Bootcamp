@@ -1,6 +1,49 @@
-i {
-    font-size: 40px;
-    color: lightskyblue; 
+body {
+    background-image: url("./background.gif");
+    background-repeat: repeat;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', cursive;
+
 }
 
-.fa-spin-pulse {-webkit-animation-delay:-1ms;animation-delay:-1ms;-webkit-animation-duration:1ms;animation-duration:1ms;-webkit-animation-iteration-count:1;animation-iteration-count:1;transition-delay:0s;transition-duration:0s};
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    width: 500px;
+    height: 350px;
+    border: solid 4px yellow;
+    border-radius: 1em;
+    margin: 15px;
+}
+
+.info {
+    color: white;
+}
+
+
+i {
+    font-size: 40px;
+    color: white;
+    text-align: center; 
+}
+
+#button {
+    width: 350px;
+    height: 50px;
+    border-radius: 1em;
+    border-color: yellow;
+    font-size: 20px;
+    font-weight: bold;
+}
