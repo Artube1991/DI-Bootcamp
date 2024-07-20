@@ -1,18 +1,10 @@
 const fs = require("fs");
 
-let textIn;
-
-function readFile(text) {
-    fs.readFile(text, 'utf-8', function (err, data) {
-    if (err) {
-        console.error(err)
-        return
-    }
-    textIn = data;
-    return textIn;
-});
+function copying(text1, text2) {
+    fs.copyFile(text1, text2, (err) => {
+    if (err) return console.error(err);
+    console.log("File copied");
+  });
 }
 
-readFile("source.txt");
-
-console.log(textIn);
+copying("source.txt", "destination.txt");
