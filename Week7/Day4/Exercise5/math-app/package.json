@@ -1,0 +1,14 @@
+{
+  "name": "xs5",
+  "version": "1.0.0",
+  "description": "project of w7d4xs5",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "aleksei ivanov",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
