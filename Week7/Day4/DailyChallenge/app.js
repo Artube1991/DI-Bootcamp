@@ -1,3 +1,6 @@
-import { greet } from "./greeting.js"
+import { greet } from './greeting.js';
+import { reading } from './read-file.js';
 
-grt.greet("Alex");
+greet("Alex");
+
+reading("./files/file-data.txt");

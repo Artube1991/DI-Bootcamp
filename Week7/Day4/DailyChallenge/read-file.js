@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const reading = (text) => {
+export const reading = (text) => {
     fs.readFile(text, 'utf-8', function (err, data) {
     if (err) {
         console.error(err)
@@ -10,4 +10,6 @@ const reading = (text) => {
 });
 }
 
-reading("./files/file-data.txt");
+
+
+// reading("./files/file-data.txt");
