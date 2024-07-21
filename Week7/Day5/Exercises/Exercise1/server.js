@@ -5,6 +5,14 @@ const items = require("./data.js");
 app.listen(5000, () => {
     console.log("my server is listening on 5000");
   });
+
+  // fetch("http://localhost:5000/", {
+  //   method:'POST',
+  //   headers: {
+  //     'content-type':'application/json'
+  //   },
+  //   body: JSON.stringify({title: "Pale Fire", content: "The great poem by Nabokov"})
+  // });
   
   app.get("/content", (req, res) => {
     res.json(items);
@@ -18,10 +26,12 @@ app.listen(5000, () => {
     if (!item) {
       return res.status(404).send("Item not found");
     }
+    
     res.json(item);
   });
 
 app.use(express.json());
+
 
 app.post("/content", (req, res) => {
   const newItem = {
@@ -46,4 +56,14 @@ app.put("/content", (req, res) => {
   };
   content[index] = puttingItems;
   res.status(200).json("Item updated");
+});
+
+app.delete("/content", (req, res) => {
+  const id = Number(req.params.itemID);
+  const index = items.findIndex((item) => item.id === id);
+  if (index === -1) {
+    return res.status(404).send("Item not found");
+  }
+  items.splice(index, 1);
+  res.status(200).json("Item deleted");
 });
