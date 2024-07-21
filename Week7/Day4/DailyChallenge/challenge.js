@@ -1,8 +1,10 @@
 import { greet } from './greeting.js';
-import { reading } from './read-file.js';
 import { log } from './colorful-message.js';
+import { reading } from './read-file.js';
 
-greet("Alex");
+greet("Mr. Bootcamp");
+
+// log("red one");
 
 log();
 

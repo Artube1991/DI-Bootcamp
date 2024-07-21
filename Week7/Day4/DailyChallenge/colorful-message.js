@@ -1,5 +1,7 @@
 import chalk from 'chalk';
-const log = console.log;
+export const log = console.log;
+
+// log(chalk.red.text1);
 
 log(
 	chalk.red("Red one for love \n") +
