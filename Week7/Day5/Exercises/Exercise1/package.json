@@ -1,12 +1,17 @@
 {
-  "name": "test",
+  "name": "exercise1",
   "version": "1.0.0",
-  "description": "test",
+  "description": "project for week 7 day 5 exercise 1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "alex",
+  "keywords": [
+    "api",
+    "node",
+    "express"
+  ],
+  "author": "aleksei ivanov",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2"
