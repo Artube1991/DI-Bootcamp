@@ -3,7 +3,8 @@ const app = express();
 const fetching = require('./data/dataService.js');
 const url = "https://jsonplaceholder.typicode.com/posts";
 
-fetching.fetchPosts(url);
+const dataToServer = fetching.fetchPosts(url);
+// console.log(dataToServer);
 
 app.listen(5000, () => {
     console.log("the server is running on 5000");
