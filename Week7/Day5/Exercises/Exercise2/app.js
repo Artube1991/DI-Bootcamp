@@ -37,12 +37,3 @@ app.post('/api/books', (req, res) => {
     res.status(201).json(newBook);
 });
 
-
-// fetch("/api/books/5", {
-//   method:'POST',
-//   headers: {
-//     'content-type':'application/json'
-//   },
-//   body: JSON.stringify({name:'iCar', price:10000})
-// })
-
