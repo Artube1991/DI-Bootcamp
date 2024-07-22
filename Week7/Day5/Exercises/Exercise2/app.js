@@ -19,6 +19,30 @@ app.get("/api/books/:bookID", (req, res) => {
         return res.status(404).send("Book not found");
     }
 
-    res.sendStatus(200);
+    // res.sendStatus(200);
     res.json(book);
 })
+
+app.use(express.json());
+
+app.post('/api/books', (req, res) => {
+    const { title, author, publishedYear } = req.body;
+    const newBook = {
+        id: books.length + 1,
+        title: title,
+        author: author,
+        publishedYear: publishedYear,
+    };
+    books.push(newBook);
+    res.status(201).json(newBook);
+});
+
+
+// fetch("/api/books/5", {
+//   method:'POST',
+//   headers: {
+//     'content-type':'application/json'
+//   },
+//   body: JSON.stringify({name:'iCar', price:10000})
+// })
+
