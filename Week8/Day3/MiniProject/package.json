@@ -1,0 +1,12 @@
+{
+  "name": "miniproject",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "aleksei ivanov",
+  "license": "ISC",
+  "description": "the bootcamp mini project for week 8, day 3"
+}
