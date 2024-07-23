@@ -1,15 +1,17 @@
 const express = require('express');
 const app = express();
-app.
+const { router } = require("./routes.js");
 
 app.listen(5000, () => {
     console.log("still listening on 5000");
   });
 
+app.use("/", router);
+
 
 //   const express = require("express");
 // const cors = require("cors");
-// const { router } = require("./routes/content_route.js");
+
 
 // const app = express();
 
@@ -22,4 +24,3 @@ app.listen(5000, () => {
 //   console.log(`run on ${process.env.PORT || 5000}`);
 // });
 
-// app.use("/", router);

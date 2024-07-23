@@ -1,10 +1,11 @@
 const tasks = require('./data.js');
+
 const getTasks = (req, res) => {
-    res.json(tasks)
+    res.json(tasks);
     };
 
 const getTask = (req, res) => {
-  const id = Number(req.params.bookID);
+  const id = Number(req.params.taskID);
   const task = tasks.find((task) => task.id === id);
   
   if (!task) {
@@ -29,7 +30,7 @@ const createTask = (req, res) => {
 
 const updateTask = (req, res) => {
   const id = Number(req.params.taskID);
-  const index = tasks.findIndex((task) => task.id === id);
+  const index = tasks.find((task) => task.id === id);
   if (index === -1) {
     return res.status(404).send()
   };
@@ -44,7 +45,7 @@ const updateTask = (req, res) => {
 };
 
 const deleteTask = (req, res) => {
-  const id = Nunber(req.params.taskID);
+  const id = Number(req.params.taskID);
   const index = tasks.findIndex((task) => task.id === id);
   if (index === -1) {
     return res.status(404).send("Task not found");

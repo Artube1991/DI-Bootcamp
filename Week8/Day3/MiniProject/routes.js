@@ -10,9 +10,11 @@ const {
 } = require('./controller.js')
 
 router.get('/tasks', getTasks)
-router.get('/tasks/:id', getTask)
+router.get('/tasks/:taskID', getTask)
 router.post('/task', createTask) 
 router.put('/:taskID', updateTask) 
 router.delete('/:taskID', deleteTask)
 
-module.exports = router
+module.exports = {
+    router,
+}
