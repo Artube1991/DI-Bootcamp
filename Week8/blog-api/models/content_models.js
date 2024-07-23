@@ -1,11 +1,21 @@
 const { db } = require("../config/db.js");
 
 const getAllContent = () => {
-  console.log("*********in function")
-    return db().select().from("great_content").orderBy("id");
+  return db("great_content").select("id", "title", "content").orderBy("id");
 };
 
-console.log("*****db",db)
+//   {
+//   console.log("*********in function")
+//     db().select().from("great_content").orderBy("id")
+//     .then(rows=>{
+//       console.log(rows);
+//     })
+//     .catch(error => {
+//       console.error('Error executing query', error);
+//     })
+//     ;
+// };
+
 console.log(getAllContent());
 
 const getOneItem = (item_id) => {
@@ -14,7 +24,7 @@ const getOneItem = (item_id) => {
     .where({ id: item_id });
   };
 
-//   console.log(getOneItem(2));
+  console.log(getOneItem(2));
   
   const insertItem = (title, content) => {
     return db("great_content").insert({title, content},["id","title","content"])

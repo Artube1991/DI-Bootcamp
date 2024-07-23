@@ -5,7 +5,7 @@ dotenv.config();
 
 const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, PGPORT } = process.env;
 
-console.log(process.env);
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const db = knex({
     client: 'pg',

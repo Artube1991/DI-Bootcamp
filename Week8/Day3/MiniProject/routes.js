@@ -12,7 +12,7 @@ const {
 router.get('/tasks', getTasks)
 router.get('/tasks/:id', getTask)
 router.post('/task', createTask) 
-router.put('/:productID', updateProduct) 
-router.delete('/:productID', deleteProduct)
+router.put('/:taskID', updateTask) 
+router.delete('/:taskID', deleteTask)
 
 module.exports = router
