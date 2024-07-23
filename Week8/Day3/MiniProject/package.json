@@ -8,5 +8,8 @@
   "keywords": [],
   "author": "aleksei ivanov",
   "license": "ISC",
-  "description": "the bootcamp mini project for week 8, day 3"
+  "description": "the bootcamp mini project for week 8, day 3",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
