@@ -7,11 +7,11 @@ const {
     createTask,
     updateTask,
     deleteTask 
-} = require('../controllers/products.js')
+} = require('controllers.js')
 
-router.get('/', getProducts)
-router.get('/:productID', getProduct)
-router.post('/', createProduct) 
+router.get('/tasks', getTasks)
+router.get('/tasks/:id', getTask)
+router.post('/task', createTask) 
 router.put('/:productID', updateProduct) 
 router.delete('/:productID', deleteProduct)
 

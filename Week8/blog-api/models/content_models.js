@@ -1,9 +1,11 @@
 const { db } = require("../config/db.js");
 
 const getAllContent = () => {
-    return db("great_content").select("id", "title", "content").orderBy("id");
+  console.log("*********in function")
+    return db().select().from("great_content").orderBy("id");
 };
 
+console.log("*****db",db)
 console.log(getAllContent());
 
 const getOneItem = (item_id) => {
