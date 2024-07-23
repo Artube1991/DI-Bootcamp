@@ -15,13 +15,14 @@ module.exports = {
             });
         } catch (error) {
             console.log(error);
-            if(error.code == 23505) {
-                console.log("User already exists");
+            if (error.code == 23505) {
+                return res
+                .status(200)
+                .json({message: "Email or Username already exists"});
             }
             res.status(500).json({error: "internal server error"})
         }
     },
-
     loginUser: async (req, res) => {
         const {email, username, password} = req.body;
 
@@ -40,8 +41,7 @@ module.exports = {
             res.json({
                 message: "Login successful",
                 user: {userid: user.id, username: user.username},
-            })
-
+            });
         } catch (error) {
             console.log(error);
             res.status(500).json({error: "Internal server error"});
@@ -50,10 +50,11 @@ module.exports = {
 
     getAllUsers: async (req, res) => {
         try {
-
+        const users = await userModel.getAllUsers();
+        res.json(users);
         } catch (error) {
             console.log(error);
             res.status(500).json({error: "Internal server error"})
         }
-    }
+    },
 };

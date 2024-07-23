@@ -1,7 +1,5 @@
 const knex = require('knex');
-const dotenv = require('dotenv');
-
-dotenv.config();
+require('dotenv').config();
 
 const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, PGPORT } = process.env;
 
