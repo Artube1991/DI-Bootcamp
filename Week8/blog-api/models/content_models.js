@@ -4,19 +4,13 @@ const getAllContent = () => {
   return db("great_content").select("id", "title", "content").orderBy("id");
 };
 
-//   {
-//   console.log("*********in function")
-//     db().select().from("great_content").orderBy("id")
-//     .then(rows=>{
-//       console.log(rows);
-//     })
-//     .catch(error => {
-//       console.error('Error executing query', error);
-//     })
-//     ;
-// };
-
-console.log(getAllContent());
+// getAllContent()
+// .then(data => {
+//   console.log(data);
+// })
+// .catch(e=>{
+//   console.log(e.message);
+// })
 
 const getOneItem = (item_id) => {
     return db("great_content")
@@ -24,13 +18,26 @@ const getOneItem = (item_id) => {
     .where({ id: item_id });
   };
 
-  console.log(getOneItem(2));
+// getOneItem(2)
+// .then(data => {
+//   console.log(data);
+// })
+// .catch(e=>{
+//   console.log(e.message);
+// })
   
   const insertItem = (title, content) => {
     return db("great_content").insert({title, content},["id","title","content"])
   }
 
-// insertItem("New Title", "Somenthing test new");
+// insertItem("New Title", "Somenthing test new")
+// .then(data => {
+//   console.log(data);
+// })
+// .catch(e=>{
+//   console.log(e.message);
+// })
+
   
   module.exports = {
     getAllContent,
