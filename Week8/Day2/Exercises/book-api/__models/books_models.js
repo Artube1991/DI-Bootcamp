@@ -27,7 +27,7 @@ const getOneBook = (item_id) => {
 // })
   
   const insertBook = (title, author, publishedyear) => {
-    return db("books").insert({title, author, publishedyear},["id","title","author", "publishedYear"])
+    return db("books").insert({title, author, publishedyear},["id", "title", "author", "publishedyear"])
   }
 
 // insertItem("New Title", "Somenthing test new")

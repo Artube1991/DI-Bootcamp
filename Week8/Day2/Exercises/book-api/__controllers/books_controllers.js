@@ -29,8 +29,8 @@ const getOne = (req, res) => {
     const { title, author, publishedyear } = req.body;
     insertBook(title, author, publishedyear)
       .then((result) => {
-        // res.json(result);
-        getAllBooks(req,res)
+        res.json(result);
+        // getAllBooks(req,res)
       })
       .catch((e) => {
         res.status(404).json({ message: "We found an error!!!" });
