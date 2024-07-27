@@ -30,7 +30,7 @@ const getOne = (req, res) => {
     insertItem(title, content)
       .then((result) => {
         // res.json(result);
-        getAllProduct(req,res)
+        getAllContent(req,res)
       })
       .catch((e) => {
         res.status(404).json({ message: "something went wrong!!!" });

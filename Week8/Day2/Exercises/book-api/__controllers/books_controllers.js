@@ -1,44 +1,44 @@
 const {
-    getAllContent,
-    getOneItem,
-    insertItem,
-  } = require("../models/content_models.js");
+    getAllBooks,
+    getOneBook,
+    insertBook,
+  } = require("../__models/books_models.js");
 
-const getContent = (req, res) => {
-    getAllContent()
+const getAll = (req, res) => {
+    getAllBooks()
     .then((result) => {
         res.json(result);
     })
     .catch((e) => {
-        res.status(404).json({message: 'something went wrong!!!'});
+        res.status(404).json({message: 'We found an error!!!'});
     });
 };
 
 const getOne = (req, res) => {
-    const { id } = req.params;
-    getOneItem(id)
+    const { bookID } = req.params;
+    getOneBook(bookID)
       .then((result) => {
         res.json(result);
       })
       .catch((e) => {
-        res.status(404).json({ message: "something went wrong!!!" });
+        res.status(404).json({ message: 'We found an error!!!'});
       });
   };
   
   const insertOne = (req, res) => {
-    const { title, content } = req.body;
-    insertItem(title, content)
+    const { title, author, publishedyear } = req.body;
+    insertBook(title, author, publishedyear)
       .then((result) => {
         // res.json(result);
-        getAllProduct(req,res)
+        getAllBooks(req,res)
       })
       .catch((e) => {
-        res.status(404).json({ message: "something went wrong!!!" });
+        res.status(404).json({ message: "We found an error!!!" });
       });
   };
 
   module.exports = {
-    getContent,
+    getAll,
     getOne,
     insertOne
   }

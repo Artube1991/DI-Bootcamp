@@ -1,7 +1,7 @@
 const { db } = require("../__config/db.js");
 
 const getAllBooks = () => {
-  return db("books").select("id", "title", "author", "publishedYear").orderBy("id");
+  return db("books").select("id", "title", "author", "publishedyear").orderBy("id");
 };
 
 getAllBooks()
@@ -14,20 +14,20 @@ getAllBooks()
 
 const getOneBook = (item_id) => {
     return db("books")
-    .select("id", "title", "author", "publishedYear")
+    .select("id", "title", "author", "publishedyear")
     .where({ id: item_id });
   };
 
-getOneBook(2)
-.then(data => {
-  console.log(data);
-})
-.catch(e=>{
-  console.log(e.message);
-})
+// getOneBook(2)
+// .then(data => {
+//   console.log(data);
+// })
+// .catch(e=>{
+//   console.log(e.message);
+// })
   
-  const insertBook = (title, content) => {
-    return db("books").insert({title, content},["id","title","author", "publishedYear"])
+  const insertBook = (title, author, publishedyear) => {
+    return db("books").insert({title, author, publishedyear},["id","title","author", "publishedYear"])
   }
 
 // insertItem("New Title", "Somenthing test new")
