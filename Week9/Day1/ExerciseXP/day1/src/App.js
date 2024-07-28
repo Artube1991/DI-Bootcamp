@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import myelement from './MyElement.js';
 import sum from "./Sum.js";
+import user from "./User.js";
 
 function App() {
   return (
@@ -13,6 +14,10 @@ function App() {
         </h1>
       {myelement}
       <p>React is {sum} times better with JSX</p>
+      <div>
+      <h3>{user.firstName}</h3>
+      <h3>{user.lastName}</h3>
+      </div>
       </header>
     </div>
   );
