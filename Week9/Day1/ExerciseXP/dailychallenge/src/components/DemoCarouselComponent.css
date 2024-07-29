@@ -1,0 +1,14 @@
+.carousel-root {
+    max-width: 30%;
+    margin: 0 auto;
+    min-height: 100vh;
+}
+
+/* .carousel-status {
+    font-size: 40px;
+} */
+
+.container {
+    display: grid;
+    place-items: center;
+}
