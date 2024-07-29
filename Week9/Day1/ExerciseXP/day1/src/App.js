@@ -3,6 +3,7 @@ import './App.css';
 import myelement from './MyElement.js';
 import sum from "./Sum.js";
 import Animals from "./UserFavoriteAnimals.js";
+import Exercise from "./Exercise3.js";
 
 const user = {
   firstName: 'Bob',
@@ -25,6 +26,7 @@ function App() {
       <h3>{user.firstName}</h3>
       <h3>{user.lastName}</h3>
       <Animals favAnimals={user.favAnimals}/>
+      <Exercise/>
       </div>
       </header>
     </div>
