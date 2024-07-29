@@ -1,5 +1,6 @@
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import './Exercise3.css';
 import myelement from './MyElement.js';
 import sum from "./Sum.js";
 import Animals from "./UserFavoriteAnimals.js";
