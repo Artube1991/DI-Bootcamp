@@ -4,7 +4,9 @@ const carinf0 = {name: "Ford", model: "Mustang"};
 
 function App() {
   return (
+    <>
   <Car carModel={carinf0.model}/>
+  </>
   );
 }
 
