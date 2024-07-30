@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 // part I
 // const ClickMe = () => {
@@ -26,22 +27,31 @@ import React from "react";
 // export default Form
 
 //Part III
-// const [isToggleOn, setToggle] = useState(true)
+const Button = () => {
+const [isToggleOn, setToggle] = useState(true)
+const [text, setText] = useState("ON");
 
-// const Button = () => {
-//     return (
-//         <button
-//             type="button"
-//             onClick={clicking}
-//         > Change color</button>
-// )
-// }
+function clicking() {
+    if (isToggleOn == true) {
+       setToggle(false);
+        setText("OFF");
+    }
 
-// function clicking(event) {
-//     if ({isToggleOn} = true) {
-//        const isToggleOn = setToggle(false);
-//     }
-//     else ({isToggleOn} = false) {
-//         const isToggleOn = setToggle(true);
-//     }
-// }
+    else if (isToggleOn == false) {
+        setToggle(true);
+        setText("ON");
+    }
+}
+
+return (
+    <>
+    <p>Exercise 3, pt. 3:</p>
+    <button
+        type="button"
+        onClick={clicking}
+    >{text}</button>
+    </>
+)
+};
+
+export default Button
