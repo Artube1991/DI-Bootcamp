@@ -16,11 +16,11 @@ const vote = (indx) => {
 
 return (
     <>
-    <h1>Vote for me:</h1>
+    <h1>Vote Your Language!</h1>
     {languages.map((item, indx) => {
         return (
-            <div key={indx}>
-                {item.name} {item.votes}
+            <div className="btn" key={indx}>
+                {item.votes} {item.name} 
                 <button onClick={() => vote(indx)}>Click Here</button>
             </div>
         );
