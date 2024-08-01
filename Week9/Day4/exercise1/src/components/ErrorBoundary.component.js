@@ -21,7 +21,6 @@ class ErrorBoundary extends React.Component {
         if (this.state.hasError) {
             return (
                 <div>
-                    <img src="link_image" />
                     <p>Something went wrong...</p><br></br>
                     <p><u>The error is</u> {this.state.error.toString()} </p><br></br>
                 </div>
