@@ -11,7 +11,7 @@ async componentDidMount() {
   try {
     const resTXT = await fetch(url);
     const res = await resTXT.text();
-    this.setState({ message: res });
+    this.setState({ msg: res });
   } catch(error) {
     console.error(error);
   }
@@ -19,8 +19,8 @@ async componentDidMount() {
 render() {
   return (
     <>
-    <h1>{this.state.message}</h1>
-    <Form setMessage={ (message) => this.setState({ message })} />
+    <h1>{this.state.msg}</h1>
+    <Form setMessage={ (msg) => this.setState({ msg })} />
     </>
   );
 }
