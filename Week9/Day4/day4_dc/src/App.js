@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Form } from "./components/form.js"
 
-function App() {
+export class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { message: null };
+  }
+async componentDidMount() {
+  const url = "http://localhost:5000/api/hello";
+  try {
+    const resTXT = await fetch(url);
+    const res = await resTXT.text();
+    this.setState({ message: res });
+  } catch(error) {
+    console.error(error);
+  }
+}
+render() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <h1>{this.state.message}</h1>
+    <Form setMessage={ (message) => this.setState({ message })} />
+    </>
   );
+}
 }
 
 export default App;
