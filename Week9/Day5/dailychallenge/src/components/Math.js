@@ -17,7 +17,8 @@ const Math = (props) => {
                     type="number"
                     min="0" max="10000"
                 />
-                <button type="submit">ADD</button>
+                <br/>
+                <button type="submit">Add Them!</button>
             </form>
             </>
 

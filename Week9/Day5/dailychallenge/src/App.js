@@ -22,7 +22,7 @@ render() {
     <div className="box" >
       <h1>Add Two Numbers</h1>
     <Math handleSubmit={this.handleSubmit} />
-    <h2>{this.state.sum}</h2>
+    <h1>{this.state.sum}</h1>
     </div>
   )
 }
