@@ -1,7 +1,8 @@
 import React from 'react';
 import quotes from "./data.js";
+import colors from './colors.js';
 
-let quoteblock = document.getElementsByClassName("quoteblock")[0];
+let body = document.getElementsByTagName("body")[0];
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -23,6 +24,9 @@ function getRandomInt(min, max) {
 //   };
 
 let randIndxDef = getRandomInt(0, 94);
+let randIndCol = getRandomInt(0, 12);
+
+body.setAttribute('style', `background-color:${colors[randIndCol]}`)
 
 class Quotes extends React.Component {
     constructor(props) {
@@ -30,18 +34,24 @@ class Quotes extends React.Component {
         this.state = {
             quote: quotes[randIndxDef].quote,
             author: quotes[randIndxDef].author,
+            color: colors[randIndCol],
         };
     }
 
     chooseQuote = () => {
         let randIndx = getRandomInt(0, 94);
+        let randIndxColCH = getRandomInt(0, 12)
         let { quote } = this.props
         let { author } = this.props
+        let { color } = this.props
         let randomQuote = quotes[randIndx].quote;
         let randomAuthor = quotes[randIndx].author;
+        let randomColor = colors[randIndxColCH];
+        body.setAttribute('style', `background-color:${randomColor}`)
         this.setState({ 
             quote: randomQuote,
             author: randomAuthor,
+            color: randomColor,
          });
 
         // moving();
@@ -49,11 +59,11 @@ class Quotes extends React.Component {
 
     render() {
         return (
-            <>
+            <div className="quoteblock">
             <h2>"{this.state.quote}"</h2>
-            <p><right><em>--{this.state.author}</em></right></p>
+            <p><em>--{this.state.author}</em></p>
             <button type="button" id="button" onClick={this.chooseQuote}>New Quote</button>
-            </>
+            </div>
         )
     }
 }
@@ -61,3 +71,4 @@ class Quotes extends React.Component {
 export default Quotes
 
 // console.log(quotes[getRandomInt(0, 94)]);
+console.log(colors[3])
