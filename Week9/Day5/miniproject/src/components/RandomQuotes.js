@@ -7,12 +7,15 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+let randIndxDef = getRandomInt(0, 94);
+let quoteblock = document.getElementsByClassName("quoteblock")[0];
+
 class Quotes extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            quote: "",
-            author: "",
+            quote: quotes[randIndxDef].quote,
+            author: quotes[randIndxDef].author,
         };
     }
 
@@ -26,6 +29,29 @@ class Quotes extends React.Component {
             quote: randomQuote,
             author: randomAuthor,
          });
+        //  function moving() {
+        //     let start = Date.now();
+      
+        //     let timer = setInterval(function() {
+        //       let timePassed = Date.now() - start;
+      
+        //       quoteblock.style.up = timePassed / 5 + 'px';
+      
+        //       if (timePassed > 1000) clearInterval(timer);
+      
+        //     }, 20);
+        //   };
+        // moving();
+    }
+
+    render() {
+        return (
+            <>
+            <p>{this.state.quote}</p>
+            <p>{this.state.author}</p>
+            <button type="button" onClick={this.chooseQuote}>New Quote</button>
+            </>
+        )
     }
 }
 
