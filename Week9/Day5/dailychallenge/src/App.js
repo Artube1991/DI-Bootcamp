@@ -3,21 +3,26 @@ import Math from './components/Math';
 import './App.css';
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.state = {
+      sum: 0,
+    }
     }
 
 handleSubmit = event => {
   let num1 = Number(event.target.num1.value);
   let num2 = Number(event.target.num2.value);
-  let sum = num1 + num2;
-  return sum
+  let sumNew = num1 + num2;
+  this.setState({ sum: sumNew })
 }
 
 render() {
   return (
     <div className="box" >
-      <Math handleSubmit={this.handleSubmit} />
+      <h1>Add Two Numbers</h1>
+    <Math handleSubmit={this.handleSubmit} />
+    <h2>{this.state.sum}</h2>
     </div>
   )
 }
