@@ -38,6 +38,20 @@
 }
 
 .quoteblock {
+  background-color: antiquewhite;
+  border-radius: 1em;
+  padding: 1%;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 10%;
+  width: 40%;
+  height: 10em;
   position: relative;
   cursor: pointer;
+}
+
+#button {
+  position: absolute;
+  right: 15%;
+  top: 80%;
 }
