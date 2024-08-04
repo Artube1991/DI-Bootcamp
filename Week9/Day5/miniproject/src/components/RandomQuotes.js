@@ -3,6 +3,7 @@ import quotes from "./data.js";
 import colors from './colors.js';
 
 let body = document.getElementsByTagName("body")[0];
+// let quoteblock = document.getElementsByClassName("quoteblock")[0];
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -26,7 +27,7 @@ function getRandomInt(min, max) {
 let randIndxDef = getRandomInt(0, 94);
 let randIndCol = getRandomInt(0, 12);
 
-body.setAttribute('style', `background-color:${colors[randIndCol]}`)
+body.setAttribute('style', `background-color:${colors[randIndCol]}`);
 
 class Quotes extends React.Component {
     constructor(props) {
@@ -47,7 +48,8 @@ class Quotes extends React.Component {
         let randomQuote = quotes[randIndx].quote;
         let randomAuthor = quotes[randIndx].author;
         let randomColor = colors[randIndxColCH];
-        body.setAttribute('style', `background-color:${randomColor}`)
+        body.setAttribute('style', `background-color:${randomColor}`);
+        // quoteblock.setAttribute('style', `color:${colors[randIndCol]}`);
         this.setState({ 
             quote: randomQuote,
             author: randomAuthor,
@@ -59,7 +61,7 @@ class Quotes extends React.Component {
 
     render() {
         return (
-            <div className="quoteblock">
+            <div class="quoteblock">
             <h2>"{this.state.quote}"</h2>
             <p><em>--{this.state.author}</em></p>
             <button type="button" id="button" onClick={this.chooseQuote}>New Quote</button>
@@ -71,4 +73,3 @@ class Quotes extends React.Component {
 export default Quotes
 
 // console.log(quotes[getRandomInt(0, 94)]);
-console.log(colors[3])
