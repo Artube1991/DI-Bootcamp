@@ -5,6 +5,7 @@ const body = document.getElementsByTagName("body")[0]
 
 function ThemeProvider({ children }) {
   const [theme, setTheme] = useState("lightblue");
+  body.setAttribute('style', `background-color:${theme}`);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === "lightblue" ? "darkslateblue" : "lightblue"));

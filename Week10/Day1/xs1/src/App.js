@@ -1,5 +1,6 @@
 import React from "react";
 import { ThemeProvider, useTheme } from "./components/ThemeContext";
+import "./App.css";
 
 function ThemeSwitcher() {
   const { theme, toggleTheme } = useTheme();
