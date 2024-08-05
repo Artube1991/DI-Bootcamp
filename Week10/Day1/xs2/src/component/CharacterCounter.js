@@ -1,32 +1,28 @@
 import { useRef } from "react";
 
+const input = document.getElementsByClassName("inputRef")[0];
+
 function CharacterCounter() {
     const inputRef = useRef(null);
-    
   
     const handleInputChange = () => {
-      const textLength = inputRef.current.value.length;
-      console.log(textLength);
+        console.log(e.target.value)
+
+    input.addEventListener("input", handleInputChange)
+      // Update the character count based on textLength
     };
-  
+    
     return (
       <div>
         <h1>Character Counter</h1>
         <textarea
-          id="inputRef"
+          className="inputRef"
           ref={inputRef}
-          onChange={handleInputChange}
           placeholder="Type something..."></textarea>
-        <p>Character Count: {handleInputChange}</p>
+        <p>Character Count: </p>
       </div>
     );
   }
 
-//   const input = document.getElementById("inputRef");
-//   input.addEventListener("oninput", counting)
-
-//   function counting(e) {
-//       console.log(e.target.value)
-//   }
 
 export default CharacterCounter
