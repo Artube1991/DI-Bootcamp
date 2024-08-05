@@ -1,12 +1,14 @@
 import React, { createContext, useContext, useState } from "react";
 
 const ThemeContext = createContext();
+const body = document.getElementsByTagName("body")[0]
 
 function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("lightblue");
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+    setTheme((prevTheme) => (prevTheme === "lightblue" ? "darkslateblue" : "lightblue"));
+    body.setAttribute('style', `background-color:${theme}`);
   };
 
   return (
