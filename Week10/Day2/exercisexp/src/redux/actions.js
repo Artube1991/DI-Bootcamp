@@ -10,12 +10,12 @@ export const adding = () => {
 
 export const toggling = () => {
     return {
-        type: toggle,
+        type: TOGGLING,
     };
 };
 
 export const removing = () => {
     return {
-        type: remove,
+        type: REMOVING,
     };
 };
