@@ -9,9 +9,9 @@ export const todoReducer = (state = initialstate, action) => {
 
     switch (action.type) {
         case ADDING:
-            return [...state, { id: Date.now(), text: action.text, status: "✔"}];
+            return [...state, { id: Date.now(), text: action.text, status: ""}];
         case TOGGLING:
-            return state.find(todo => todo.id = action.id)
+            return;
         case REMOVING:
             return state.filter((todo) => todo.id !== action.id);
         default:

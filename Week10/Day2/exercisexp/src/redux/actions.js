@@ -8,11 +8,11 @@ export const adding = () => {
     };
 };
 
-export const toggling = () => {
-    return {
-        type: TOGGLING,
-    };
-};
+// export const toggling = () => {
+//     return {
+//         type: TOGGLING,
+//     };
+// };
 
 export const removing = () => {
     return {
