@@ -31,7 +31,7 @@ function ToDoList() {
           <ul>
             {todos.map((todo) => (
               <li key={todo.id}>
-                {todo.text}
+                {todo.text} {todo.status}
                 <button onClick={() => handleRemove(todo.id)}>Remove</button>
               </li>
             ))}
