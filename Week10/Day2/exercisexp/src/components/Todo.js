@@ -7,7 +7,7 @@ import { ADDING, TOGGLING, REMOVING } from "../redux/actions";
 function ToDoList() {
     const [todos, dispatch] = useReducer(todoReducer, []);
     const [todoText, setTodoText] = useState("");
-    const [todoStatus, setToDoStatus] = useState("");
+
   
     const handleAdd = () => {
       if (todoText.trim() === "") return;
@@ -16,8 +16,8 @@ function ToDoList() {
     };
   
     const handleToggle = (id) => {
-      dispatch({ type: TOGGLING, id, status: todoStatus});
-      setToDoStatus("✔");
+      dispatch({ type: TOGGLING, id, });
+  
       };
 
 
