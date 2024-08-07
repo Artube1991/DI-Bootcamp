@@ -1,27 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  
-};
+const initialState = [];
 
 export const todoSlice = ({
     name: "todolist",
     initialState,
     reducers: {
-        adding: (state) => {
+        addTodo: (state) => {
             return [...state, { id: Date.now(), text: action.text, status: "active"}];
           },
-          // counter/decrement
-          decrement: (state) => {
-            state.count -= 1;
+        toggleTodo: (state, action) => {
+            const newState = [...state];
+            const task = newState.findIndex((todo) => todo.id === action.id);
+            const todo = { ...state[task] };
+      
+            if (todo.status === "not active") {
+              todo.status = "active";
+            } else {
+              todo.status = "not active";
+            }
+      
+            newState[task] = todo;
+            return newState;
           },
-          // counter/reset
-          reset: (state) => {
-            state.count = 0;
+        removeTodo: (state, action) => {
+          return state.filter((todo) => todo.id !== action.id);
           },
-          incrementByNum: (state, action) => {
-            console.log(action);
-            state.count += action.payload;
-    }
-}
-})
+      },
+});

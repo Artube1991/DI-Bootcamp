@@ -5,7 +5,7 @@ import { todoReducer } from "../redux/reducer";
 import { ADDING, TOGGLING, REMOVING } from "../redux/actions";
 
 function ToDoList() {
-  const todos = useSelector(state => state.todoReducer)
+  const todos = useSelector(state => state.todoReducer);
   const [todoText, setTodoText] = useState("");
   const dispatch = useDispatch()
   
