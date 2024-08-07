@@ -1,13 +1,13 @@
 import React, { useReducer, useState } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import { todoReducer } from "../redux/reducer";
 
 import { ADDING, TOGGLING, REMOVING } from "../redux/actions";
 
 function ToDoList() {
-    const [todos, dispatch] = useReducer(todoReducer, []);
-    const [todoText, setTodoText] = useState("");
-
+  const todos = useSelector(state => state.todoReducer)
+  const [todoText, setTodoText] = useState("");
+  const dispatch = useDispatch()
   
     const handleAdd = () => {
       if (todoText.trim() === "") return;
@@ -17,7 +17,6 @@ function ToDoList() {
   
     const handleToggle = (id) => {
       dispatch({ type: TOGGLING, id, });
-  
       };
 
 
