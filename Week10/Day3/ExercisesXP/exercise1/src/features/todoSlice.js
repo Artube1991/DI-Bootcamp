@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [];
 
-export const todoSlice = ({
+export const todoSlice = ({createSlice({
     name: "todolist",
     initialState,
     reducers: {
@@ -25,6 +25,8 @@ export const todoSlice = ({
           },
         removeTodo: (state, action) => {
           return state.filter((todo) => todo.id !== action.id);
-          },
+          }
+        }
+}) 
       },
-});
+);
