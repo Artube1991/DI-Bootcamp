@@ -4,7 +4,7 @@ import { todoSlice } from "../features/todoSlice";
 
 function TodoList() {
     const todos = useSelector(state => state.todoSlice);
-}
+
 
 return (
     <ul>
@@ -15,6 +15,7 @@ return (
 ))}
     </ul>
 )
+}
 
 export default TodoList
 

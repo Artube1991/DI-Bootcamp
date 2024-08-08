@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 
 import { toggleTodo, removeTodo } from "../features/todoSlice";
