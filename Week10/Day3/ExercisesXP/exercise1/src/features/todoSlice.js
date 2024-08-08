@@ -6,32 +6,31 @@ export const todoSlice = createSlice({
     name: "todolist",
     initialState,
     reducers: {
-        addTodo: (state) => {
-            return [...state, { id: Date.now(), text: action.text, status: "active"}];
+        addingTodo: (state, action) => {
+            console.log(action);
+            state.push({ id: Date.now(), text: action.payload, status: "active"});
           },
         toggleTodo: (state, action) => {
-            const newState = [...state];
-            const task = newState.findIndex((todo) => todo.id === action.id);
-            const todo = { ...state[task] };
+          console.log(action);
+            const task = state.find((todo) => todo.id === action.payload);
       
-            if (todo.status === "not active") {
-              todo.status = "active";
+            if (task.status === "not active") {
+              task.status = "active";
             } else {
-              todo.status = "not active";
+              task.status = "not active";
             }
       
-            newState[task] = todo;
-            return newState;
           },
         removeTodo: (state, action) => {
-          return state.filter((todo) => todo.id !== action.id);
+          console.log(action);
+          return state.filter((todo) => todo.id !== action.payload);
           
         }
       },
     });
     
   export const {
-    addTodo,
+    addingTodo,
     toggleTodo,
     removeTodo
   } = todoSlice.actions;

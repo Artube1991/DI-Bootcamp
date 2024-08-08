@@ -1,6 +1,5 @@
 import './App.css';
 import AddTodo from './components/AddTodo';
-import ToDoItem from './components/TodoItem';
 import TodoList from './components/TodoList';
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
 <h1>My Todo List</h1>
 <AddTodo/>
 <TodoList>
-  <ToDoItem/>
 </TodoList>
 </>
   );

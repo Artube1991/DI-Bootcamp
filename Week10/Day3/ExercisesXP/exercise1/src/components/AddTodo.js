@@ -1,20 +1,21 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../features/todoSlice";
+import { addingTodo } from "../features/todoSlice";
 
-function AddTodo() {
-    const [todoText, setTodoText] = useState("");
-    const dispatch = useDispatch();
 
-    const handleAdd = () => {
-        if (todoText.trim() === "") return;
-        dispatch({ type: addTodo, text: todoText });
-        setTodoText("");
-      };
+const AddTodo = () => {
+  const dispatch = useDispatch();
+  const textRef = useRef();
 
-      return (
-        <button onClick={handleAdd}>Add Todo</button>
-      )
+return (
+  <>
+  <input
+        type="text"
+        placeholder="Add todo"
+        ref={textRef}/>
+  <button onClick={() => dispatch(addingTodo(textRef.current.value))}>Add Todo</button>
+  </>
+)
 }
 
 export default AddTodo
