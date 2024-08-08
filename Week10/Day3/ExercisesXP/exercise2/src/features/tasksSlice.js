@@ -3,25 +3,25 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = [];
 
 export const tasksSlice = createSlice({
-    name: "todolist",
+    name: "taskList",
     initialState,
     reducers: {
         addingTask: (state, action) => {
             console.log(action);
             state.push({ id: Date.now(), text: action.payload, date: action.payload});
           },
-        toggleTodo: (state, action) => {
+        toggleTask: (state, action) => {
           console.log(action);
-            const task = state.find((todo) => todo.id === action.payload);
+            const note = state.find((task) => task.id === action.payload);
       
-            if (task.status === "not active") {
-              task.status = "active";
+            if (note.status === "X") {
+              note.status = "✔";
             } else {
-              task.status = "not active";
+              note.status = "X";
             }
       
           },
-        removeTodo: (state, action) => {
+        removeTask: (state, action) => {
           console.log(action);
           return state.filter((todo) => todo.id !== action.payload);
           
@@ -30,9 +30,9 @@ export const tasksSlice = createSlice({
     });
     
   export const {
-    addingTodo,
-    toggleTodo,
-    removeTodo
-  } = todoSlice.actions;
+    addingTask,
+    toggleTask,
+    removeTask
+  } = tasksSlice.actions;
 
   export default tasksSlice.reducer;
