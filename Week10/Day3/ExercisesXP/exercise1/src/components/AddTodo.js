@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { todoSlice } from "../features/todoSlice";
+import { addTodo } from "../features/todoSlice";
 
-function TodoList() {
-    const todos = useSelector(state => state.todoSlice);
+function AddTodo() {
     const [todoText, setTodoText] = useState("");
 
     const handleAdd = () => {
         if (todoText.trim() === "") return;
-        dispatch({ type: ADDING, text: todoText });
+        dispatch({ type: addTodo, text: todoText });
         setTodoText("");
       };
 
-
+      return (
+        <button onClick={handleAdd}>Add Todo</button>
+      )
 }
 
+export default AddTodo
