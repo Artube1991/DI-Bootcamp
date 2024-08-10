@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import TaskItem from "./TodoItem";
+// import { tasksSlice } from "../features/tasksSlice";
+import TaskItem from "./TaskItem";
 
 const TasksList = () => {
     const tasks = useSelector(state => state.taskList);
@@ -11,7 +12,7 @@ return (
     {tasks.map((task) => (
         <li key={task.id}>
           {task.text} {task.date} {task.status}
-          <ToDoItem todo={todo}/>
+          <TaskItem task={task}/>
         </li>
 ))}
     </ul>

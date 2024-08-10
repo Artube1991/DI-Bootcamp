@@ -1,18 +1,16 @@
 import React from "react";
 import { useDispatch, } from "react-redux";
-import { toggleTodo, removeTodo } from "../features/todoSlice";
+import { toggleTask, removeTask } from "../features/tasksSlice";
 
-const ToDoItem = (props) => {
+const TaskItem = (props) => {
   const dispatch = useDispatch();
-  
-
 
   return (
     <>
-    <button onClick={() => dispatch(toggleTodo(props.todo.id))}>Change status</button>
-    <button onClick={() => dispatch(removeTodo(props.todo.id))}>Remove</button>
+    <button onClick={() => dispatch(toggleTask(props.todo.id))}>Change status</button>
+    <button onClick={() => dispatch(removeTask(props.todo.id))}>Remove</button>
     </>
   )
 }
 
-export default ToDoItem
+export default TaskItem
