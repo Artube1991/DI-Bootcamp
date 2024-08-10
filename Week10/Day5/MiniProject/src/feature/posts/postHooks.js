@@ -7,8 +7,8 @@ import { useCallback } from "react";
 export const usePostsSelector = () => {
     return useSelector(
         createSelector([posts, author]), (posts, author) => {
-            if (author == -1) return posts;
-            return posts.filter((post) => post.userId == author);
+            if (author === -1) return posts;
+            return posts.filter((post) => post.userId === author);
         })
 };
 
