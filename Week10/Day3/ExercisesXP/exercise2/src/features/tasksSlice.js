@@ -8,7 +8,7 @@ export const tasksSlice = createSlice({
     reducers: {
         addingTask: (state, action) => {
             console.log(action);
-            state.push({ id: Date.now(), text: action.payload, date: action.payload, status: "✔"});
+            state.push({ id: Date.now(), text: action.payload.t, date: action.payload.d, status: "✔"});
           },
         toggleTask: (state, action) => {
           console.log(action);

@@ -6,6 +6,7 @@ import { addingTask } from "../features/tasksSlice";
 const AddTask = () => {
   const dispatch = useDispatch();
   const textRef = useRef();
+  const dateRef = useRef();
 
 return (
   <>
@@ -13,7 +14,11 @@ return (
         type="text"
         placeholder="Add todo"
         ref={textRef}/>
-  <button onClick={() => dispatch(addingTask(textRef.current.value))}>Add Todo</button>
+  <input
+        type="date"
+        placeholder="Add date"
+        ref={dateRef}/>
+  <button onClick={() => dispatch(addingTask({t: textRef.current.value, d: dateRef.current.value}))}>Add Todo</button>
   </>
 )
 }
