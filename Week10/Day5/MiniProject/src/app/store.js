@@ -1,15 +1,12 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { thunk } from 'redux-thunk';
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import postReducer from "../feature/posts/postSlice";
-// import userReducer from '../feature/users/usersSlice';
+import userReducer from '../feature/users/usersSlice';
 
-export const store = configureStore({
-    reducer: {
-        postReducer,
-        // userReducer
-    },
-    middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(thunk),
+export const appReducer = combineReducers({
+    postReducer,
+    userReducer,
+    });
+
+export default configureStore({
+    reducer: appReducer,
 });
-
-export default store;

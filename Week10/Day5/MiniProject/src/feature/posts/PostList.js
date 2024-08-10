@@ -1,17 +1,19 @@
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchPosts } from "./postSlice";
 import ReactionButton from "./ReactionButton";
+// import { useSelector, useDispatch } from "react-redux";
+import { usePostsSelector, usePostsStatus, useFetchPosts } from "./postHooks";
+
 
 const PostLists = (props) => {
-    const posts = useSelector((state) => state.postReducer.posts);
-    const status = useSelector((state) => state.postReducer.status);
-    const author = useSelector((state) => state.postReducer.author);
+    const posts = usePostsSelector();
+    const status = usePostsStatus();
 
-    const dispatch = useDispatch()
+    const callFetchPosts = useFetchPosts();
+
+    // const dispatch = useDispatch()
 
     useEffect(() => {
-        dispatch(fetchPosts())
+        callFetchPosts();
     }, []);
 
     if(status === 'loading') return<h2>Loading</h2>
@@ -20,10 +22,10 @@ const PostLists = (props) => {
     <p>Something went wrong, try later</p>
 
     const renderPosts = posts
-    .filter(post => {
-        if(author != -1) return post.userID == author
-        return post;
-    })
+    // .filter(post => {
+    //     if(author != -1) return post.userID == author
+    //     return post;
+    // })
     .map((post) => {
         return (
         <article key={post.id}>
@@ -38,7 +40,8 @@ const PostLists = (props) => {
         <>
         <h2>Posts</h2>
         <section>
-            {
+            {renderPosts}
+            {/* {
                 posts 
                 ? posts.map((post) => {
                     return (
@@ -49,7 +52,7 @@ const PostLists = (props) => {
                         </article>
                     );
                 })
-            : null}
+            : null} */}
         </section>
         </>
     );

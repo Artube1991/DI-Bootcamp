@@ -28,8 +28,8 @@ const postsSlice = createSlice({
             }
         },
         filterAuthor: (state, action) => {
-
-        }
+            state.author = action.payload;
+        },
     },
     extraReducers(builder) {
         builder
