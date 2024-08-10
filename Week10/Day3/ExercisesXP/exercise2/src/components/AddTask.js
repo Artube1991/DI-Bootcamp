@@ -9,17 +9,17 @@ const AddTask = () => {
   const dateRef = useRef();
 
 return (
-  <>
+  <div class="adding">
   <input
         type="text"
-        placeholder="Add todo"
+        placeholder="Add task"
         ref={textRef}/>
   <input
         type="date"
         placeholder="Add date"
         ref={dateRef}/>
   <button onClick={() => dispatch(addingTask({t: textRef.current.value, d: dateRef.current.value}))}>Add Todo</button>
-  </>
+  </div>
 )
 }
 
