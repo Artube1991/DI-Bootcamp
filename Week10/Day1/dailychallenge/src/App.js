@@ -29,7 +29,7 @@ function App() {
   const inputRef = useRef();
 
   const addTask = () => {
-    const value = inputRef.current.valuel
+    const value = inputRef.current.value;
     dispatch({ type: AddTask, payload: value });
     inputRef.current.value = "";
   };
