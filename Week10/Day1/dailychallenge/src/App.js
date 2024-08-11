@@ -1,5 +1,5 @@
 import { useState, useReducer, useRef, createContext } from 'react';
-import { v4 ad uuid4 } from "uuid";
+import { v4 as uuid4 } from "uuid";
 import ListTask from './components/ListTask';
 import './App.css';
 
@@ -18,28 +18,34 @@ export const taskReducer = (state, action) => {
     newTasks.push({ id: uuid4(), name: action.payload, active: true});
     return { ...state, tasks: newTasks };
   } else if (action.type === TaskRemove) {
-    
+    const tasksNotRemoved = state.tasks.filter((task) => task.id !== action.id);
+    return { ...state, tasks: tasksNotRemoved };
   }
+  return state;
 }
 
 function App() {
+  const [state, dispatch] = useReducer(taskReducer, initialState);
+  const inputRef = useRef();
+
+  const addTask = () => {
+    const value = inputRef.current.valuel
+    dispatch({ type: AddTask, payload: value });
+    inputRef.current.value = "";
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <TaskContext.Provider value={{dispatch, state}}>
+        <div>
+          <h1>Tasks Manager</h1>
+          <input placeholder='Add your task here...' ref={inputRef} />
+          <button onClick={() => addTask()}>Add Task</button>
+          <div>
+          <h2>List of tasks</h2>
+          <ListTask />
+          </div>
+        </div>
+      </TaskContext.Provider>
   );
 }
 
