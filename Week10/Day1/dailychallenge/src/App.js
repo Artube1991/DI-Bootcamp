@@ -1,5 +1,26 @@
-import logo from './logo.svg';
+import { useState, useReducer, useRef, createContext } from 'react';
+import { v4 ad uuid4 } from "uuid";
+import ListTask from './components/ListTask';
 import './App.css';
+
+export const TaskContext = createContext();
+
+export const initialState = {
+  tasks: [],
+};
+
+export const AddTask = "AddTask";
+export const TaskRemove = "TaskRemove";
+
+export const taskReducer = (state, action) => {
+  if (action.type === AddTask) {
+    const newTasks = [...state.tasks];
+    newTasks.push({ id: uuid4(), name: action.payload, active: true});
+    return { ...state, tasks: newTasks };
+  } else if (action.type === TaskRemove) {
+    
+  }
+}
 
 function App() {
   return (
