@@ -1,16 +1,16 @@
+
 interface Vehicle {
     make: string;
     model: string;
+    start(): string;
 }
 
-function start(vehicle: Vehicle): string {
-        return `This is a ${vehicle.make}, model is ${vehicle.model}`
-    }
+
 
 
 interface Car extends Vehicle {
-    make: string;
-    model: string;
+    // make: string;
+    // model: string;
     numberOfDoors: number;
 
 //     constructor(make: string, model: string, numberOfDoors: number) {
@@ -30,5 +30,10 @@ class Sedan implements Car {
         this.model = model;
         this.numberOfDoors = numberOfDoors;
     }
+    start(): string {
+        return `Hi, I'm ${this.make}, model ${this.model}, ${this.numberOfDoors} doors. I came from the future!`
+    }
 };
 
+let newCar = new Sedan("DeLorean", "DMC-12", 2)
+console.log(newCar.start());
