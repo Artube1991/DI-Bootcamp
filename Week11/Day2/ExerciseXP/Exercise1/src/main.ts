@@ -18,6 +18,6 @@ getFullName() {
 
 let person1 = new Person('Vikont', 'De Barant', 27, 'Penanzse, France');
 console.log(person1.getFullName());
-console.log(person1.firstName);
-console.log(person1.age);
-console.log(person1.address);
+// console.log(person1.firstName);
+// console.log(person1.age);
+// console.log(person1.address);
