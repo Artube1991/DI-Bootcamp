@@ -24,7 +24,7 @@ function App() {
       <h1>Vite + React</h1>
       <Greeting myName={name}/>
       <Counter/>
-      <UserCard myName={name}/>
+      <UserCard myName={name} myAge={age}/>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
