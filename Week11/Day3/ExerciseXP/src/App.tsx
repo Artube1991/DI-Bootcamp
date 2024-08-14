@@ -4,8 +4,10 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Greeting from "../components/Greeting.tsx"
 import Counter from "../components/Counter.tsx"
+import UserCard from "../components/UserCard.tsx"
 
 const name = "Alexey";
+const age = 33;
 
 function App() {
 
@@ -22,6 +24,7 @@ function App() {
       <h1>Vite + React</h1>
       <Greeting myName={name}/>
       <Counter/>
+      <UserCard myName={name}/>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
