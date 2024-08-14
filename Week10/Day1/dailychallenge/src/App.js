@@ -11,6 +11,7 @@ export const initialState = {
 
 export const AddTask = "AddTask";
 export const TaskRemove = "TaskRemove";
+export const FilterTask = "FilterTask";
 
 export const taskReducer = (state, action) => {
   if (action.type === AddTask) {
@@ -21,18 +22,29 @@ export const taskReducer = (state, action) => {
     const tasksNotRemoved = state.tasks.filter((task) => task.id !== action.id);
     return { ...state, tasks: tasksNotRemoved };
   }
+  else if (action.type === FilterTask) {
+    const taskFound = state.tasks.filter((task) => task.name === action.payload);
+    return {... state, tasks: taskFound }
+  }
   return state;
 }
 
 function App() {
   const [state, dispatch] = useReducer(taskReducer, initialState);
   const inputRef = useRef();
+  const searchRef = useRef();
 
   const addTask = () => {
     const value = inputRef.current.value;
     dispatch({ type: AddTask, payload: value });
     inputRef.current.value = "";
   };
+
+  const filterTask = () => {
+    const value = searchRef.current.value;
+    dispatch({ type: FilterTask, payload: value });
+    searchRef.current.value = "";
+  }
 
   return (
       <TaskContext.Provider value={{dispatch, state}}>
@@ -42,6 +54,8 @@ function App() {
           <button onClick={() => addTask()}>Add Task</button>
           <div>
           <h2>List of tasks</h2>
+          <input placeholder='Find your task here...' ref={searchRef} />
+          <button onClick={() => filterTask()}>Find task</button>
           <ListTask />
           </div>
         </div>

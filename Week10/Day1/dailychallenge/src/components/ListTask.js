@@ -14,7 +14,7 @@ const ListTask = (props) => {
                     <RemovingTask id={task.id} />
                 </div>
             );
-        })}
+        })}  
         </>
     );
 };
