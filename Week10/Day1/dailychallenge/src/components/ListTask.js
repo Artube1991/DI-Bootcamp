@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { TaskContext } from "../App";
 import RemovingTask from "./RemovingTasks";
+import TaskEdit from "./EditingTask";
 
 const ListTask = (props) => {
     const { state } = useContext(TaskContext);
@@ -12,6 +13,7 @@ const ListTask = (props) => {
                 <div key={task.id}>
                     {task.name}
                     <RemovingTask id={task.id} />
+                    <TaskEdit id={task.id}/>
                 </div>
             );
         })}  

@@ -12,6 +12,7 @@ export const initialState = {
 export const AddTask = "AddTask";
 export const TaskRemove = "TaskRemove";
 export const FilterTask = "FilterTask";
+export const EditTask = "EditTask";
 
 export const taskReducer = (state, action) => {
   if (action.type === AddTask) {
@@ -25,6 +26,11 @@ export const taskReducer = (state, action) => {
   else if (action.type === FilterTask) {
     const taskFound = state.tasks.filter((task) => task.name === action.payload);
     return {... state, tasks: taskFound }
+  }
+  else if (action.type === EditTask) {
+    const editing = state.find((task) => task.id = action.payload.id);
+    console.log(editing);
+    editing.text = action.payload.text;
   }
   return state;
 }
