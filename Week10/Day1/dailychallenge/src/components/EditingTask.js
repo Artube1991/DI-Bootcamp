@@ -7,8 +7,9 @@ const TaskEdit = (props) => {
     const { dispatch } = useContext(TaskContext);
     const editRef = useRef();
     
-    const editingTask = ({ id }) => {
-    dispatch({type: EditTask, id});
+    const editingTask = () => {
+    console.log(props.id);
+    dispatch({type: EditTask});
     editRef.current.value = "";
     };
 
@@ -18,7 +19,7 @@ const TaskEdit = (props) => {
             type="text"
             placeholder="Edit your task here"
             ref={editRef} />
-        <button onClick={() => dispatch(editingTask({id: props.task.id, text: editRef.current.value}))}>
+        <button onClick={() => dispatch(editingTask({i: props.id, text: editRef.current.value}))}>
             EDIT
             </button>
         </>

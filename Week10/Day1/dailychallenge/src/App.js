@@ -25,10 +25,11 @@ export const taskReducer = (state, action) => {
   }
   else if (action.type === FilterTask) {
     const taskFound = state.tasks.filter((task) => task.name === action.payload);
-    return {... state, tasks: taskFound }
+    return {...state, tasks: taskFound }
   }
   else if (action.type === EditTask) {
-    const editing = state.find((task) => task.id = action.payload.id);
+    console.log(action.payload.i);
+    const editing = state.tasks.find((task) => task.id = action.payload.i);
     console.log(editing);
     editing.text = action.payload.text;
   }

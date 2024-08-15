@@ -6,6 +6,7 @@ const RemovingTask = ({ id }) => {
     const { dispatch } = useContext(TaskContext);
 
     const taskRemoving = () => {
+        console.log(id);
         dispatch({type: TaskRemove, id});
     };
 
