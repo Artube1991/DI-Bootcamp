@@ -10,7 +10,8 @@ function App() {
     const [todo, setToDos] = useState<any>([]);
 
     const addTodo<Todo> = () => {
-        {id: }
+        return ({id: uuid4; text: Date.now()
+        })
     }
 
 }
