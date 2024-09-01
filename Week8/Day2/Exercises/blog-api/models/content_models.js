@@ -4,13 +4,13 @@ const getAllContent = () => {
   return db("great_content").select("id", "title", "content").orderBy("id");
 };
 
-// getAllContent()
-// .then(data => {
-//   console.log(data);
-// })
-// .catch(e=>{
-//   console.log(e.message);
-// })
+getAllContent()
+.then(data => {
+  console.log(data);
+})
+.catch(e=>{
+  console.log(e.message);
+})
 
 const getOneItem = (item_id) => {
     return db("great_content")

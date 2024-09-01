@@ -15,7 +15,7 @@ const db = knex({
         user: PGUSER,
         database: PGDATABASE,
         password: PGPASSWORD,
-        ssl: {rejectUnathorized: false},
+        // ssl: {rejectUnathorized: false},
     }
 })
 

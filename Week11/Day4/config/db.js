@@ -12,7 +12,7 @@ module.exports = {
       user: PGUSER,
       database: PGDATABASE,
       password: PGPASSWORD,
-      ssl: { rejectUnauthorized: false },
+      // ssl: { rejectUnauthorized: false },
     },
   }),
 };
