@@ -1,7 +1,7 @@
-const solar_system = [
-    { name: "Mercury", moon: 0, color: "orange" },
+let solar_system = [
+    { name: "Mercury", moon: 0, color: "darkorange" },
     { name: "Venus", moon: 0, color: "darkgrey" },
-    { name: "Earth", moon: 1, color: "blue" },
+    { name: "Earth", moon: 1, color: "skyblue" },
     { name: "Mars", moon: 2, color: "darkred" }, 
     { name: "Jupiter", moon: 79, color: "brown" },
     { name: "Saturn", moon: 82, color: "darkyellow" },
@@ -9,19 +9,19 @@ const solar_system = [
     { name: "Neptune", moon: 14, color: "darkblue" },
 ];
 
-const planets = document.getElementById("listPlanets");
+let planets = document.getElementsByClassName("listPlanets")[0];
 
 for (let i = 0; i < solar_system.length; i++ ) {
-    const planet = document.createElement("div");
-    planet.classList.add("planets");
-    planet.innetText - solar_system[i].name;
-    planet.style.background = solar_system[i].color;
+    let planet = document.createElement("div");
+    planet.classList.add("planet");
+    planet.innerText = solar_system[i].name;
+    planet.style.backgroundColor = solar_system[i].color;
     planets.appendChild(planet);
 
-    const moons = solar_system[i].moon;
+    let moons = solar_system[i].moon;
     let left_side = 0;
     for (let j = 0; j < moons; j++) {
-        const moon = document.createElement("div");
+        let moon = document.createElement("div");
         moon.classList.add("moon");
         moon.style.left = left_side + "px";
         left_side += 15;
@@ -29,7 +29,8 @@ for (let i = 0; i < solar_system.length; i++ ) {
     }    
 };
 
-const length = solar_system.length;
+let length = solar_system.length;
+
 for (let i = 0; i < length; i++) {
 };
 
