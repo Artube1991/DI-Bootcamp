@@ -18,5 +18,20 @@ for (let i = 0; i < solar_system.length; i++ ) {
     planet.style.background = solar_system[i].color;
     planets.appendChild(planet);
 
-    
-}
+    const moons = solar_system[i].moon;
+    let left_side = 0;
+    for (let j = 0; j < moons; j++) {
+        const moon = document.createElement("div");
+        moon.classList.add("moon");
+        moon.style.left = left_side + "px";
+        left_side += 15;
+        planet.appendChild(moon);
+    }    
+};
+
+const length = solar_system.length;
+for (let i = 0; i < length; i++) {
+};
+
+for (let i = solar_system.length-1; i >= 0; i--) {
+};
