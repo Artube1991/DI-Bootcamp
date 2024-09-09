@@ -1,11 +1,23 @@
-import React from 'react';
-import Photobox from './components/PhotoBox';
+import React, { useState } from 'react';
 import { Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
+
+import Beachs from './components/Beachs';
+import Birds from './components/Birds';
+import Food from './components/Food';
+import Mountains from './components/Mountains';
+import Photobox from './components/PhotoBox';
+
 import './App.css';
 
+export const SearchContext = React.createContext();
+
 function App() {
+  const [searchCTXT, setSearchCTXT] = useState("");
+
+
   return (
+    <SearchContext.Provider value={[searchCTXT, setSearchCTXT]}>
     <div className="App">
       <h1>SnapShot</h1>
       <form className="searchbox">
@@ -25,13 +37,14 @@ function App() {
     <Link to="/birds">Birds   </Link>
     <Link to="/food">Food</Link>
     <Routes>
-      <Route path="/mountains" request="mountains"/>
-      <Route path="/beachs" request="beachs"/>
-      <Route path="/birds" request="birds"/>
-      <Route path="/food" request="food"/>
+      <Route path="/mountains" element={<Mountains />}/>
+      <Route path="/beachs" element={<Beachs />}/>
+      <Route path="/birds" element={<Birds />} />
+      <Route path="/food" element={<Food />}/>
     </Routes>
     <Photobox />
     </div>
+    </SearchContext.Provider>
   );
 }
 

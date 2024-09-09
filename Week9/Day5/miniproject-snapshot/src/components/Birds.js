@@ -1,12 +1,12 @@
-import { useState, useEffect, useContext } from "react";
+import { useState } from "react";
 import { createClient } from 'pexels';
 
-const Photobox = () => {
+const Birds = () => {
 
 const [images, setImages] = useState([]);
 
 const client = createClient('fKxgTp156XGeUiYt1NHQLu3759QxjeQeV9dbBAYdciycAIW7qRPP95mL');
-const query = 'Nature';
+const query = 'Birds';
 
 client.photos.search({ query, per_page: 30}).then(pictures => {
     setImages(pictures.photos);
@@ -20,7 +20,7 @@ client.photos.search({ query, per_page: 30}).then(pictures => {
     {images.map((image) => {
       return(
         <div key={image.id} className="photocard">
-          <img src={image.src.tiny} alt="shapshot project"/>
+          <img src={image.src.tiny} alt="shapshot birds"/>
           </div>
       )
     })}
@@ -30,4 +30,4 @@ client.photos.search({ query, per_page: 30}).then(pictures => {
 
 };
 
-export default Photobox;
+export default Birds;
