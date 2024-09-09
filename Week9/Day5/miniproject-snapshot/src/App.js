@@ -1,4 +1,5 @@
 import React from 'react';
+import Photobox from './components/PhotoBox';
 import { Routes, Route } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './App.css';
@@ -29,6 +30,7 @@ function App() {
       <Route path="/birds" request="birds"/>
       <Route path="/food" request="food"/>
     </Routes>
+    <Photobox />
     </div>
   );
 }
