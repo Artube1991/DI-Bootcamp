@@ -13,7 +13,7 @@ import './App.css';
 export const SearchContext = React.createContext();
 
 function App() {
-  const [searchCTXT, setSearchCTXT] = useState("");
+  const [searchCTXT, setSearchCTXT] = useState(``);
 
 
   return (
@@ -21,7 +21,8 @@ function App() {
     <div className="App">
       <h1>SnapShot</h1>
       <form className="searchbox">
-        <input type="text" placeholder="Find any picture you want!" />
+        <input type="text" placeholder="Find any picture you want!" onChange={(e) => setSearchCTXT(e.target.value)} />
+        <Link to="/search">
         <button type="submit" className="searchbutton">
         <svg height="32" width="32">
           <path
@@ -31,6 +32,7 @@ function App() {
             </path>
           </svg>
         </button>
+        </Link>
       </form>
     <Link to="/mountains">Mountains   </Link>
     <Link to="/beachs">Beachs   </Link>
@@ -41,6 +43,7 @@ function App() {
       <Route path="/beachs" element={<Beachs />}/>
       <Route path="/birds" element={<Birds />} />
       <Route path="/food" element={<Food />}/>
+      <Route path="/search" element={<Photobox />}/>
     </Routes>
     <Photobox />
     </div>

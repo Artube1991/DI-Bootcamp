@@ -1,12 +1,14 @@
 import { useState, useEffect, useContext } from "react";
 import { createClient } from 'pexels';
+import { SearchContext } from "../App";
 
 const Photobox = () => {
 
 const [images, setImages] = useState([]);
+const [searchCTXT, setSearchCTXT] = useContext(SearchContext);
 
 const client = createClient('fKxgTp156XGeUiYt1NHQLu3759QxjeQeV9dbBAYdciycAIW7qRPP95mL');
-const query = 'Nature';
+const query = searchCTXT;
 
 client.photos.search({ query, per_page: 30}).then(pictures => {
     setImages(pictures.photos);
@@ -17,6 +19,7 @@ client.photos.search({ query, per_page: 30}).then(pictures => {
 
   return(
     <div>
+    <h2>{searchCTXT} Photos</h2>
     {images.map((image) => {
       return(
         <div key={image.id} className="photocard">
