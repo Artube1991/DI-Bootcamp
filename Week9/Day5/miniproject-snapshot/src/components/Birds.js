@@ -16,15 +16,20 @@ client.photos.search({ query, per_page: 30}).then(pictures => {
   });
 
   return(
-    <div>
+    <>
+    <h2>Birds Photo</h2>
+    <div className="main">
     {images.map((image) => {
       return(
+        <div className="photobox">
         <div key={image.id} className="photocard">
           <img src={image.src.tiny} alt="shapshot birds"/>
+          </div>
           </div>
       )
     })}
     </div>
+    </>
 
   );
 

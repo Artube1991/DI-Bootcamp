@@ -2,16 +2,32 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  margin: 20px; 
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.searchbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
+
+input {
+  height: 36px;
+  width: 300px;
+  border-radius: 1vh;
+  border: solid grey 2px;
+  background-color: lightblue;
+}
+
+button {
+  background-color: darkblue;
+}
+
+
 
 .App-header {
   background-color: #282c34;

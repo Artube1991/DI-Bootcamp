@@ -14,14 +14,21 @@ export const SearchContext = React.createContext();
 
 function App() {
   const [searchCTXT, setSearchCTXT] = useState(``);
+  const [buttonDisplay, setButtonDisplay] = useState('');
 
 
   return (
     <SearchContext.Provider value={[searchCTXT, setSearchCTXT]}>
     <div className="App">
       <h1>SnapShot</h1>
-      <form className="searchbox">
-        <input type="text" placeholder="Find any picture you want!" onChange={(e) => setSearchCTXT(e.target.value)} />
+      <form className="searchbox"> 
+        <input 
+        type="text"
+        placeholder="Find any picture you want!" 
+        onInput={(e) => setSearchCTXT(e.target.value)}
+        height={"32px"}
+        style={{display: buttonDisplay}}
+        />
         <Link to="/search">
         <button type="submit" className="searchbutton">
         <svg height="32" width="32">
@@ -34,10 +41,12 @@ function App() {
         </button>
         </Link>
       </form>
-    <Link to="/mountains">Mountains   </Link>
+      <div className="headers">
+      <Link to="/mountains">Mountains   </Link>
     <Link to="/beachs">Beachs   </Link>
     <Link to="/birds">Birds   </Link>
     <Link to="/food">Food</Link>
+    </div>
     <Routes>
       <Route path="/mountains" element={<Mountains />}/>
       <Route path="/beachs" element={<Beachs />}/>
@@ -45,9 +54,8 @@ function App() {
       <Route path="/food" element={<Food />}/>
       <Route path="/search" element={<Photobox />}/>
     </Routes>
-    <Photobox />
-    </div>
-    </SearchContext.Provider>
+      </div>
+      </SearchContext.Provider>
   );
 }
 
