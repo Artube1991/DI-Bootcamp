@@ -17,7 +17,7 @@ client.photos.search({ query, per_page: 30}).then(pictures => {
 
   return(
     <>
-    <h2>Beachs Photo</h2>
+    <h2>Beachs Images</h2>
     <div className="main">
     {images.map((image) => {
       return(

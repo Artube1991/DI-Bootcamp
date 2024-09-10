@@ -19,7 +19,7 @@ client.photos.search({ query, per_page: 30}).then(pictures => {
 
   return(
     <>
-    <h2>{searchCTXT} Photos</h2>
+    <h2>{searchCTXT} Images</h2>
     <div className="main">
     {images.map((image) => {
       return(

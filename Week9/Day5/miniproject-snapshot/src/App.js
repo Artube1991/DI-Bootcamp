@@ -14,8 +14,7 @@ export const SearchContext = React.createContext();
 
 function App() {
   const [searchCTXT, setSearchCTXT] = useState(``);
-  const [buttonDisplay, setButtonDisplay] = useState('');
-
+  const [query, setQuery] = useState('');
 
   return (
     <SearchContext.Provider value={[searchCTXT, setSearchCTXT]}>
@@ -25,12 +24,11 @@ function App() {
         <input 
         type="text"
         placeholder="Find any picture you want!" 
-        onInput={(e) => setSearchCTXT(e.target.value)}
+        onInput={(e) => setQuery(e.target.value)}
         height={"32px"}
-        style={{display: buttonDisplay}}
         />
         <Link to="/search">
-        <button type="submit" className="searchbutton">
+        <button type="submit" className="searchbutton" onClick={(e) => setSearchCTXT(query)}>
         <svg height="32" width="32">
           <path
           d="M19.427 21.427a8.5 8.5 0 1 1 2-2l5.585 5.585c.55.55.546 1.43 0 1.976l-.024.024a1.399 1.399 0 0 1-1.976 0l-5.585-5.585zM14.5 21a6.5 6.5 0 1 0 0-13 6.5 6.5 0 0 0 0 13z"
