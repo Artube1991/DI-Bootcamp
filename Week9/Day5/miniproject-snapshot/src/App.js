@@ -42,10 +42,10 @@ function App() {
         </Link>
       </form>
       <div className="headers">
-      <Link to="/mountains">Mountains   </Link>
-    <Link to="/beachs">Beachs   </Link>
-    <Link to="/birds">Birds   </Link>
-    <Link to="/food">Food</Link>
+      <Link to="/mountains" className="links">Mountains   </Link>
+      <Link to="/beachs" className="links">Beachs   </Link>
+      <Link to="/birds" className="links">Birds   </Link>
+      <Link to="/food" className="links">Food</Link>
     </div>
     <Routes>
       <Route path="/mountains" element={<Mountains />}/>

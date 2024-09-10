@@ -2,6 +2,20 @@
   text-align: center;
 }
 
+h1 {
+  font-family: "Pacifico", cursive;
+  font-weight: 550;
+  font-size: 5em;
+  font-style: normal;
+  margin-top: 5%;
+}
+
+h2, .links, input {
+    font-family: "Concert One", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
 .main {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -17,38 +31,39 @@
 
 input {
   height: 36px;
-  width: 300px;
+  width: 430px;
   border-radius: 1vh;
   border: solid grey 2px;
   background-color: lightblue;
+  font-size: large;
 }
 
 button {
   background-color: darkblue;
 }
 
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.headers {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 2%;
+  font: 1.1em sans-serif;
+  margin: 2%;
 }
 
-.App-link {
-  color: #61dafb;
+.links {
+  align-content: center;
+  width: 100px;
+  height: 30px;
+  background-color: darkblue;
+  color:azure;
+  border-radius: 0.2em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+img {
+  transition: transform 0.8s;
+}
+
+img:hover {
+  transform: scale(1.3);
 }
