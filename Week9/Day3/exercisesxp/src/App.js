@@ -1,6 +1,7 @@
 import './App.css';
 import React from 'react';
 import ErrorBoundary from './ErrorBoundary';
+import Color from './components/ColorsChange';
 
 class BuggyCounter extends React.Component {
   constructor(props) {
@@ -46,6 +47,8 @@ function App() {
         </ErrorBoundary>
     <h1>Sinmulation 3</h1>
     <BuggyCounter />
+    <h1>Exercise 2</h1>
+    <Color />
       </>
   );
 };
