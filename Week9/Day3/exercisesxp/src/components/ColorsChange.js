@@ -41,19 +41,24 @@ class Color extends React.Component {
 };
 
 class Child extends Color {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
     };
 
-    // componentWillUnmount() {
+    componentWillUnmount() {
+        alert("The header is not unmounted yet")
+    }
 
-    // }
+    changeShow = () => {
+        this.setState({ show: false });
+    }
 
     render() {
     if (this.state.show === true) {
         return (
             <>
             <header>Hello World!</header>
+            <button onClick={this.changeShow}>Delete Header</button>
             </>
         )
     }
