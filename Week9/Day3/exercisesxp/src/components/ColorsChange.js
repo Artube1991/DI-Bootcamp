@@ -4,7 +4,7 @@ class Color extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            color: "red",
+            color: "red", show: true
         };
     };
 
@@ -13,7 +13,7 @@ class Color extends React.Component {
     };
 
     componentDidMount(){
-        alert("start the mounting");
+        // alert("start the mounting");
         setTimeout(() => this.setState({color: "yellow"}), 5000);
     }
 
@@ -34,9 +34,30 @@ class Color extends React.Component {
             <>
                 <header>My favourite color is <em>{this.state.color}</em></header>
                 <button onClick={this.changeColor}>Change color to blue</button>
+                <Child/>
             </>
         );
     }
 };
 
-export default Color
+class Child extends Color {
+    constructor(props) {
+        super(props);
+    };
+
+    // componentWillUnmount() {
+
+    // }
+
+    render() {
+    if (this.state.show === true) {
+        return (
+            <>
+            <header>Hello World!</header>
+            </>
+        )
+    }
+}
+}
+
+export default Color;
