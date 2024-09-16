@@ -8,19 +8,26 @@ class Color extends React.Component {
         };
     };
 
+    shouldComponentUpdate() {
+        return true
+    };
+
+    componentDidMount(){
+        alert("start the mounting");
+        setTimeout(() => this.setState({color: "yellow"}), 5000);
+    }
+
+    componentDidUpdate() {
+        console.log("after update")
+    };
+
+    getSnapshotBeforeUpdate() {
+        console.log("in getSnapshotBeforeUpdate");
+    };
+
     changeColor = () => {
         this.setState({ color: "blue"});
     };
-
-    shouldComponentUpdate() {
-        return false
-    };
-
-    componentDidMount() {
-        alert("componentDidMount reached");
-        this.setState({color: "yellow"});
-        console.log("after update")
-    }
 
     render() {
         return (
