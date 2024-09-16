@@ -1,39 +1,52 @@
 import './App.css';
-import React, { useState } from 'react';
-import ErrorBoundary from './components/ErrorBoundary';
+import React from 'react';
+import ErrorBoundary from './ErrorBoundary';
 
 class BuggyCounter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {num: 0};
   }
-
+  
   handleClick = () => {
     let count = this.state.num;
     let setCount = count + 1;
     this.setState({ num: setCount })
-    if (setCount >= 5) {
-      throw new Error("I crashed!")
-    };
-  };
+  }
 
   render() {
+    if (this.state.num > 4) {
+      throw new Error("I crashed!")
+    };
     return(
       <>
-      <h1>Simulation 1</h1>
-      <ErrorBoundary>
-      <div onClick={this.handleClick}>{this.state.num}</div>
-      </ErrorBoundary>
+      <h3 onClick={this.handleClick}>{this.state.num}</h3>
       </>
     )
   }
-}
+};
+
 
 function App() {
   return (
-    <div className="App">
-      <BuggyCounter />
-    </div>
+    <>
+    <h1>Simulation 1</h1>
+      <ErrorBoundary>
+        <BuggyCounter />
+        <br />
+        <BuggyCounter />
+        </ErrorBoundary>
+    <h1>Simulation 2</h1>
+      <ErrorBoundary>
+        <BuggyCounter />
+        </ErrorBoundary>
+        <br />
+      <ErrorBoundary>
+        <BuggyCounter />
+        </ErrorBoundary>
+    <h1>Sinmulation 3</h1>
+    <BuggyCounter />
+      </>
   );
 };
 
