@@ -29,17 +29,21 @@ const FormComponent = (props) => {
         for (let genButton of genderButtons) {
             if (genButton.checked) {
                 setGender(genButton.value);
+            // genButton.checked ? setGender(genButton.value) : setGender(genButton.value)
+
             }
 
-        if (nutsButton.checked) {
-                setNuts(nutsButton.value);
-                }
-        else {
-            setNuts('No');
-        }
+        // if (nutsButton.checked) {
+        //         setNuts(nutsButton.value);
+        //         }
+        // else {
+        //     setNuts('No');
+        // }
         
+        nutsButton.checked == true ? setNuts('Yes') : setNuts('No')
+        lactoseButton.checked == true ? setLactose('Yes') : setLactose('No')
+        veganButton.checked == true ? setVegan('Yes') : setVegan('No')
         
-            // genButton.checked ? setGender(genButton.value) : setGender(genButton.value)
         }
 
 
@@ -77,8 +81,8 @@ const FormComponent = (props) => {
         <p>Your gender: {gender}</p>
         <p>Your destination: {destination}</p>
         <p>Nuts Free: {nuts}</p>
-        <p>Lactose Free</p>
-        <p>Vegan</p>
+        <p>Lactose Free: {lactose}</p>
+        <p>Vegan: {vegan}</p>
         </>
     )
 };
