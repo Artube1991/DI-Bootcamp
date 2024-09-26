@@ -13,13 +13,6 @@ const handleChange = (event) => {
 
 function App() {
 
-  const [firstName, setFirstName] = useState(``);
-  const [lastName, setLastName] = useState(``);
-  const [age, setAge] = useState(``);
-  const [gender, setGender] = useState(``);
-  const [destination, setDestination] = useState(``);
-  const [dietary, setDietary] = useState([]);
-
   return (
     <div className="App">
       <FormComponent handlesubmit={handleChange}/>
