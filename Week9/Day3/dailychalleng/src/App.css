@@ -1,9 +1,8 @@
-
-
 h1 {
   background-color: brown;
   color: white;
   margin: 0;
+  padding: 10px;
 }
 
 .form {
@@ -12,8 +11,10 @@ h1 {
 }
 
 .info {
-  background-color: darkslategrey;
+  background-color: hsl(180, 25%, 25%);
   color: white;
+  font-style: italic;
+  padding: 10px;
 }
 
 #fn, #ln, #ag {
