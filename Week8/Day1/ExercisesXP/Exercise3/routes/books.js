@@ -43,7 +43,7 @@ const createBook = (req, res) => {
         };
 
         books.push(newBook);
-        res.status(201).json("You successfully added new book: -> ", newBook);
+        res.status(201).json(newBook);
       } catch (error) {
         console.log(error);
         res.status(500).json({error: "Internal server error"})
