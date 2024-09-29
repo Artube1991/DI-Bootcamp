@@ -16,7 +16,7 @@ const getTodos = (req, res) => {
       }
       };
 
-const createTask = (req, res) => {
+const createTodo = (req, res) => {
     try {
     const { todo } = req.body;
     const newTodo = {
@@ -29,18 +29,18 @@ const createTask = (req, res) => {
         console.log(error);
         res.status(500).json({error: "Internal server error"})
       }
-      };
+    };
 
-const updateTask = (req, res) => {
+const updateTodo = (req, res) => {
     try {
         const { id, todo } = req.body; 
-        const index = todos.findIndex((todo) => todo.id === req.body.id);
+        const index = todos.findIndex((todo) => todo.id === id);
         if (index === -1) {
           return res.status(404).send()
         };
         const newTodo = {
           id: todos[index].id,
-          todo: req.body.todo,
+          todo: todo,
         };
         todos.splice(index, 1, newTodo);
         res.json(puttingTodo);
@@ -49,12 +49,30 @@ const updateTask = (req, res) => {
         console.log(error);
         res.status(500).json({error: "Internal server error"})
       }
-      };
+    };
+    
+const deleteTodo = (req, res) => {
+    try {
+    const { id } = req.body; 
+    const index = todos.findIndex((todo) => todo.id === id);
+        if (index === -1) {
+          return res.status(404).send("Task not found");
+        };
+        tasks.splice(index, 1);
+        res.status(200).json("Task deleted");
+      } catch (error) {
+        console.log(error);
+        res.status(500).json({error: "Internal server error"})
+      }
+    };
 
 const express = require('express');
 const router = express.Router();
 
 router.get('/todos', getTodos);
+router.post('/todos', createTodo);
+router.put('/todos/:id', updateTodo);
+router.delete('todos/:id', deleteTodo);
 
 module.exports = {
     router,
