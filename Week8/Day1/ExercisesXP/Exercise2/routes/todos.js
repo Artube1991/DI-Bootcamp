@@ -1,3 +1,6 @@
+const express = require('express');
+const router = express.Router();
+
 const todos = [
     {id: 1,
         todo: "To make a haircut"},
@@ -33,18 +36,20 @@ const createTodo = (req, res) => {
 
 const updateTodo = (req, res) => {
     try {
-        const { id, todo } = req.body; 
-        const index = todos.findIndex((todo) => todo.id === id);
+        const id = Number(req.params.id);
+        const { todo } = req.body; 
+        const index = todos.findIndex((task) => task.id === id);
         if (index === -1) {
-          return res.status(404).send()
+          return res.status(404).send("Todo not found")
         };
         const newTodo = {
           id: todos[index].id,
           todo: todo,
         };
+        console.log(newTodo);
+        console.log(id);
         todos.splice(index, 1, newTodo);
-        res.json(puttingTodo);
-        res.status(200).json("Task updated");
+        res.status(200).json("Todo updated");
       } catch (error) {
         console.log(error);
         res.status(500).json({error: "Internal server error"})
@@ -53,28 +58,24 @@ const updateTodo = (req, res) => {
     
 const deleteTodo = (req, res) => {
     try {
-    const { id } = req.body; 
-    const index = todos.findIndex((todo) => todo.id === id);
+    const id = Number(req.params.id);
+    const index = todos.findIndex((task) => task.id === 4);
         if (index === -1) {
-          return res.status(404).send("Task not found");
+          return res.status(404).send("Todo not found");
         };
-        tasks.splice(index, 1);
-        res.status(200).json("Task deleted");
+        todos.splice(index, 1);
+        res.status(200).json("Todo deleted");
       } catch (error) {
         console.log(error);
         res.status(500).json({error: "Internal server error"})
       }
     };
 
-const express = require('express');
-const router = express.Router();
-
 router.get('/todos', getTodos);
 router.post('/todos', createTodo);
 router.put('/todos/:id', updateTodo);
-router.delete('todos/:id', deleteTodo);
+router.delete('/todos/:id', deleteTodo);
 
 module.exports = {
     router,
 };
-
