@@ -32,7 +32,7 @@ const getBooks = (req, res) => {
       }
       };
 
-const createTodo = (req, res) => {
+const createBook = (req, res) => {
     try {
     const { title, author, year } = req.body;
     const newBook = {
@@ -64,35 +64,36 @@ const updateBook = (req, res) => {
           author: author,
           year: year,
         };
-        console.log(newTodo);
+
+        console.log(newBook);
         console.log(id);
-        todos.splice(index, 1, newTodo);
-        res.status(200).json("Todo updated");
+        books.splice(index, 1, newBook);
+        res.status(200).json(`You updated book with id ${id}`);
       } catch (error) {
         console.log(error);
         res.status(500).json({error: "Internal server error"})
       }
     };
     
-const deleteTodo = (req, res) => {
+const deleteBook = (req, res) => {
     try {
     const id = Number(req.params.id);
-    const index = todos.findIndex((task) => task.id === 4);
+    const index = books.findIndex((book) => book.id === 4);
         if (index === -1) {
-          return res.status(404).send("Todo not found");
+          return res.status(404).send("Book not found");
         };
-        todos.splice(index, 1);
-        res.status(200).json("Todo deleted");
+        books.splice(index, 1);
+        res.status(200).json(`You've just deleted book with id ${id}`);
       } catch (error) {
         console.log(error);
         res.status(500).json({error: "Internal server error"})
       }
     };
 
-router.get('/todos', getTodos);
-router.post('/todos', createTodo);
-router.put('/todos/:id', updateTodo);
-router.delete('/todos/:id', deleteTodo);
+router.get('/books', getBooks);
+router.post('/books', createBook);
+router.put('/books/:id', updateBook);
+router.delete('/books/:id', deleteBook);
 
 module.exports = {
     router,
