@@ -1,6 +1,10 @@
 const express = require('express');
-const app = express();
 const router = express.Router();
+const { hello, about } = require('../controllers/controllers.js');
 
-router.get('/', 'this is my homepage');
-router.get('/about');
+router.get('/', hello);
+router.get('/about', about);
+
+module.exports = {
+    router,
+}
