@@ -15,7 +15,7 @@ const triviaQuestions = [
       answer: "Blue whale",
     },
     {
-        question: "Who lives on the shore of the sea?",
+        question: "Who lives in the pineapple under the sea?",
         answer: "SpongeBob SquarePants",
     },
     {
@@ -26,6 +26,7 @@ const triviaQuestions = [
 
   const numberQuestion = {
     number: 0,
+    score: 0,
   }
 
   const trivia = (req, res) => {
@@ -43,11 +44,13 @@ const triviaQuestions = [
     try {
         let answer = req.body.answer;
         if (answer === triviaQuestions[numberQuestion.number].answer) {
+            numberQuestion.score++;
             res.status(201).json("Your answer is correct!")
         }
         else {
             res.status(404).json("You gave wrong answer!")
         }
+        numberQuestion.number++;
     } catch (error) {
         console.log(error);
         res.status(500).json({error: "Internal server error"})
