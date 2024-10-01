@@ -32,8 +32,13 @@ const triviaQuestions = [
   const trivia = (req, res) => {
     try {
         let index = numberQuestion.number;
-        const qstion = triviaQuestions[index].question;
-        res.json(qstion);
+        if (index <= 4) {
+            const qstion = triviaQuestions[index].question;
+            res.json(qstion);
+        }
+        else {
+           res.json(`You finished our Trivia Quiz! Your total score is ${numberQuestion.score} of 5`)
+        }
     } catch (error) {
         console.log(error);
         res.status(500).json({error: "Internal server error"})
@@ -55,10 +60,20 @@ const triviaQuestions = [
         console.log(error);
         res.status(500).json({error: "Internal server error"})
     }
+  };
+
+  const score = (req, res) => {
+    try {
+        res.status(200).json(`Your current score in the Quiz Trivia is ${numberQuestion.score} of 5`);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({error: "Internal server error"})
+    }
   }
 
   router.get("/quiz", trivia);
-  router.post("/quiz", quiz)
+  router.post("/quiz", quiz);
+  router.get("/quiz/score", score);
 
   module.exports = {
     router,
