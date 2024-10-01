@@ -24,9 +24,13 @@ const triviaQuestions = [
     }
   ];
 
+  const numberQuestion = {
+    number: 0,
+  }
+
   const trivia = (req, res) => {
     try {
-        let index = 3;
+        let index = numberQuestion.number;
         const qstion = triviaQuestions[index].question;
         res.json(qstion);
     } catch (error) {
@@ -35,7 +39,23 @@ const triviaQuestions = [
     }
   };
 
+  const quiz = (req, res) => {
+    try {
+        let answer = req.body.answer;
+        if (answer === triviaQuestions[numberQuestion.number].answer) {
+            res.status(201).json("Your answer is correct!")
+        }
+        else {
+            res.status(404).json("You gave wrong answer!")
+        }
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({error: "Internal server error"})
+    }
+  }
+
   router.get("/quiz", trivia);
+  router.post("/quiz", quiz)
 
   module.exports = {
     router,
