@@ -61,20 +61,21 @@ module.exports = {
     getUserByID: async (req, res) => {
         try {
             const user = await userModel.getUserByID(req.params.id);
-            res.status(200).json(user);
+            if (!user) {
+                res.status(404).json("User not found");
+            }
+            else {res.status(200).json(user)};
         } catch (error) {
+            console.log(error);
             res.status(500).json({error: "Internal server error"})
         }
     },
 
     updateUser: async (req, res) => {
         try {
-            await userModel.updateUserByID(
+            await userModel.updateAUser(
                 req.params.id,
-                req.body.email,
-                req.body.username,
-                req.body.first_name,
-                req.body.last_name,
+                req.body,
             );
             res.status(201).json("User successfully updated");
         } catch (error) {

@@ -61,7 +61,7 @@ module.exports = {
     //     }
     // },
 
-    updateAUser(id, email, username, first_name, last_name) {
+    updateAUser: async(id, user) => {
         const { email, username, first_name, last_name } = user;
         return await db.transaction(async (trx) => {
           try {
@@ -72,7 +72,7 @@ module.exports = {
               if (existingEmail) {
                 throw new Error("Email is already taken");
               }
-            }
+            };
       
             if (username && username !== oldUser.username) {
               const existingUsername = await trx("users").where({ username }).first();
@@ -93,7 +93,7 @@ module.exports = {
             throw error;
           }
         });
-      }
+      },
 
     getUserByUsername: async(email, username) => {
         try {
