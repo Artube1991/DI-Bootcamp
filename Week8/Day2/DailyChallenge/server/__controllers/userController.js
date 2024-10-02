@@ -1,4 +1,4 @@
-const userModel = require('../models/userModels.js');
+const userModel = require('../__models/userModels.js');
 const bcrypt = require("bcrypt");
 
 module.exports = {
@@ -27,7 +27,7 @@ module.exports = {
         const {email, username, password} = req.body;
 
         try {
-            const user = await userModel.getUserByUsername(email, username)
+            const user = await userModel.getUserByUsername(email, username, password)
 
             if (!user) {
                 return res.status(404).json({message: "user not found"})
@@ -57,4 +57,30 @@ module.exports = {
             res.status(500).json({error: "Internal server error"})
         }
     },
+
+    getUserByID: async (req, res) => {
+        try {
+            const user = await userModel.getUserByID(req.params.id);
+            res.status(200).json(user);
+        } catch (error) {
+            res.status(500).json({error: "Internal server error"})
+        }
+    },
+
+    updateUser: async (req, res) => {
+        try {
+            await userModel.updateUserByID(
+                req.params.id,
+                req.body.email,
+                req.body.username,
+                req.body.first_name,
+                req.body.last_name,
+            );
+            res.status(201).json("User successfully updated");
+        } catch (error) {
+            res.status(500).json({error: "Internal server error"})
+        }
+    },
+
+
 };
