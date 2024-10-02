@@ -48,6 +48,7 @@ module.exports = {
     getAllUsers: async() => {
         try {
             const users = await db("users");
+            console.log(users);
             return users;
         } catch (error) {
             throw error;
