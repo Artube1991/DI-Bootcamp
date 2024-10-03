@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 8 Day 3 Daily Challenge: Login</title>
+    <script src="login.js" async defer></script>
+</head>
+<body>
+    <h1>Register:</h1>
+    <form id="register" method="POST" action="http://localhost:5000/register" target="_blank">
+        <label for="username" name="username">Username</label>
+        <input type="text" name="username">
+        <br /> <br />
+        <label for="password" name="password">Password</label>
+        <input type="password" name="password">
+        <br /> <br />
+        <button type="submit">Login</button>
+        </form>
+        <br />
+        <p id="login_message"></p>
+</body>
+</html>

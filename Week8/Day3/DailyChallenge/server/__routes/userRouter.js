@@ -9,7 +9,7 @@ const registerUser = (req, res) => {
 
         try {
             if (users.some(user => user.username === req.body.username) || users.some(user => user.email === req.body.email)) {
-                res.status(400).json("Email or Username already exists")
+                res.status(400).json({message: "Email or Username already exists"})
             }
             else {
             const userInfo = {
@@ -28,12 +28,12 @@ const registerUser = (req, res) => {
 
         } catch (error) {
             console.log(error);
-            if (error.code == 23505) {
-                return res
-                .status(200)
-                .json({message: "Email or Username already exists"});
-            }
-            res.status(500).json({error: "internal server error"})
+            // if (error.code == 23505) {
+            //     return res
+            //     .status(200)
+            //     .json({message: "Email or Username already exists"});
+            // }
+            res.status(500).json({message: "internal server error"})
         }
     };
 
