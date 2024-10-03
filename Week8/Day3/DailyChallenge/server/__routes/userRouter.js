@@ -1,13 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const users = require('../store/users.json')
+const users = require('../__store/users.json')
 
 const registerUser = (req, res) => {
         const { username, password, email, first_name, last_name} = req.body;
 
-        const user = {username, password, email, first_name, last_name};
+        // const user = {username, password, email, first_name, last_name};
 
         try {
+            if (users.some(user => user.username === req.body.username) || users.some(user => user.email === req.body.email)) {
+                res.status(400).json("Email or Username already exists")
+            }
+            else {
             const userInfo = {
                 id: users.length + 1,
                 username: username,
@@ -20,7 +24,8 @@ const registerUser = (req, res) => {
             res.status(201).json({
                 message: `Hello, ${username}! Your account is now created!`,
                 user: userInfo,
-            });
+            })};
+
         } catch (error) {
             console.log(error);
             if (error.code == 23505) {
@@ -34,8 +39,6 @@ const registerUser = (req, res) => {
 
 const loginUser = (req, res) => {
         const {username, password} = req.body;
-        
-
         try {
             const name = users.find(user => user.username === username);
             const psw = users.find(user => user.password === password);
@@ -43,7 +46,6 @@ const loginUser = (req, res) => {
             if (name && psw) {
                 res.json({
                     message: `Hi, ${username}! Welcome back again!`,
-                    user: {userid: user.id, username: user.username},
                 });
             };
 
@@ -71,9 +73,10 @@ const getAllUsers = (req, res) => {
       };
 
 const getUserByID = (req, res) => {
-    const id = req.params.id;
+    const id = Number(req.params.id);
         try {
             const user = users.find(user => user.id === id);
+            console.log(user);
             if (!user) {
                 res.status(404).json("User not found");
             }
