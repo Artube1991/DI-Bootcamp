@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const users = require('../store/users.json')
 
-const registerUser = async (req, res) => {
+const registerUser = (req, res) => {
         const { username, password, email, first_name, last_name} = req.body;
 
         const user = {username, password, email, first_name, last_name};
@@ -15,6 +16,7 @@ const registerUser = async (req, res) => {
                 first_name: first_name,
                 last_name: last_name
             };
+            users.push(userInfo);
             res.status(201).json({
                 message: `Hello, ${username}! Your account is now created!`,
                 user: userInfo,
@@ -30,7 +32,7 @@ const registerUser = async (req, res) => {
         }
     };
 
-const loginUser = async (req, res) => {
+const loginUser = (req, res) => {
         const {username, password} = req.body;
         
 
@@ -98,10 +100,8 @@ const updateUser = (req, res) => {
           first_name: first_name,
           last_name: last_name,
         };
-        console.log(updUser);
-        console.log(id);
         users.splice(index, 1, updUser);
-        res.status(200).json(`You've updated user with id ${id}`);
+        res.status(200).json({message: `You've updated user with id ${id}`, user: updUser});
       } catch (error) {
         console.log(error);
         res.status(500).json({error: "Internal server error"})

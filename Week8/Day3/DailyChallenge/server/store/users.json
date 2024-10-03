@@ -1,0 +1,28 @@
+[    {
+        "id": "1",
+        "username": "Alex",
+        "email": "aaa@gmail.com",
+        "password": "111",
+        "first_name": "Aleksei",
+        "last_name": "Ivanov"
+    },
+
+    {
+        "id": "2",
+        "username": "Nonna",
+        "email": "bbb@gmail.com",
+        "password": "222",
+        "first_name": "Anna",
+        "last_name": "Diskina"
+    },
+
+    {
+        "id": "3",
+        "username": "Moby",
+        "email": "ccc@gmail.com",
+        "password": "333",
+        "first_name": "Richard",
+        "last_name": "Hall"
+    }
+
+]

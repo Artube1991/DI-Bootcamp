@@ -2,7 +2,6 @@ const express = require('express');
 const userRouter = require('./server/__routes/userRouter.js')
 const app = express();
 
-app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000
