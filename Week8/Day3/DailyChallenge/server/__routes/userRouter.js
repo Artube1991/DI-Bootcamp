@@ -1,17 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require("bcrypt");
 
-module.exports = {
-    registerUser: async (req, res) => {
+const registerUser = async (req, res) => {
         const { username, password, email, first_name, last_name} = req.body;
 
-        const user = {username, password, email, first_name, last_name}
+        const user = {username, password, email, first_name, last_name};
 
         try {
-            const userInfo = await userModel.createUser(user);
+            const userInfo = {
+                id: users.length + 1,
+                username: username,
+                password: password,
+                email: email,
+                first_name: first_name,
+                last_name: last_name
+            };
             res.status(201).json({
-                message: 'User registered successfully',
+                message: `Hello, ${username}! Your account is now created!`,
                 user: userInfo,
             });
         } catch (error) {
@@ -23,45 +28,50 @@ module.exports = {
             }
             res.status(500).json({error: "internal server error"})
         }
-    },
-    loginUser: async (req, res) => {
-        const {email, username, password} = req.body;
+    };
+
+const loginUser = async (req, res) => {
+        const {username, password} = req.body;
+        
 
         try {
-            const user = await userModel.getUserByUsername(email, username, password)
+            const name = users.find(user => user.username === username);
+            const psw = users.find(user => user.password === password);
 
-            if (!user) {
-                return res.status(404).json({message: "user not found"})
-            }
-            const passwordMatch = await bcrypt.compare(password + "", user.password);
+            if (name && psw) {
+                res.json({
+                    message: `Hi, ${username}! Welcome back again!`,
+                    user: {userid: user.id, username: user.username},
+                });
+            };
 
-            if (!passwordMatch) {
+            if (!name) {
+                return res.status(404).json({message: "Username is not registered."})
+            };
+
+            if (!psw) {
                 return res.status(404).json({message: "Authentication failed..."});
-            }
+            };
 
-            res.json({
-                message: "Login successful",
-                user: {userid: user.id, username: user.username},
-            });
         } catch (error) {
             console.log(error);
             res.status(500).json({error: "Internal server error"});
         }
-    },
+    };
 
-    getAllUsers: async (req, res) => {
-        try {
-        const users = await userModel.getAllUsers();
-        res.json(users);
-        } catch (error) {
-            console.log(error);
-            res.status(500).json({error: "Internal server error"})
-        }
-    },
+const getAllUsers = (req, res) => {
+    try {
+      res.status(200).json(users);
+      } catch (error) {
+        console.log(error);
+        res.status(500).json({error: "Internal server error"})
+      }
+      };
 
-    getUserByID: async (req, res) => {
+const getUserByID = (req, res) => {
+    const id = req.params.id;
         try {
-            const user = await userModel.getUserByID(req.params.id);
+            const user = users.find(user => user.id === id);
             if (!user) {
                 res.status(404).json("User not found");
             }
@@ -70,29 +80,41 @@ module.exports = {
             console.log(error);
             res.status(500).json({error: "Internal server error"})
         }
-    },
+    };
 
-    updateUser: async (req, res) => {
-        try {
-            await userModel.updateAUser(
-                req.params.id,
-                req.body,
-            );
-            res.status(201).json("User successfully updated");
-        } catch (error) {
-            res.status(500).json({error: "Internal server error"})
-        }
-    },
+const updateUser = (req, res) => {
+    try {
+        const id = Number(req.params.id);
+        const { username, password, email, first_name, last_name} = req.body;
+        const index = users.findIndex((user) => user.id === id);
+        if (index === -1) {
+          return res.status(404).send("User not found")
+        };
+        const updUser = {
+          id: users[index].id,
+          username: username,
+          password: password,
+          email: email,
+          first_name: first_name,
+          last_name: last_name,
+        };
+        console.log(updUser);
+        console.log(id);
+        users.splice(index, 1, updUser);
+        res.status(200).json(`You've updated user with id ${id}`);
+      } catch (error) {
+        console.log(error);
+        res.status(500).json({error: "Internal server error"})
+      }
+    };
 
 
-};
+router.post('/register', registerUser);
+router.post('/login', loginUser);
 
-router.post('/register', userController.registerUser);
-router.post('/login', userController.loginUser);
+router.get("/users", getAllUsers);
+router.get("/users/:id", getUserByID);
 
-router.get("/users", userController.getAllUsers);
-router.get("/users/:id", userController.getUserByID);
-
-router.put("/users/:id", userController.updateUser);
+router.put("/users/:id", updateUser);
 
 module.exports = router;
