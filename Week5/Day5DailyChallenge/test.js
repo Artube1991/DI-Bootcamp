@@ -9,19 +9,11 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     console.log(e.target.input.value);
     let newTask = e.target.input.value;
-    if (newTask !== "") {
-    tasks.push(newTask)
-    }
-    else if (newTask === "") {
-        return
-    };
+    tasks.push(newTask);
     console.log(tasks);
     listTasks.innerHTML = "";
-    showTasks(tasks);
-});
-
-function showTasks(todos) {
-    for (let todo of todos) {
+    // showTasks(tasks);
+    for (let todo of tasks) {
         console.log(todo);
         const taskArea = document.createElement("div");
         listTasks.appendChild(taskArea);
@@ -35,20 +27,33 @@ function showTasks(todos) {
         taskArea.appendChild(deleteButton);
         taskArea.appendChild(task);
 
-        deleteButton.addEventListener("click", (e) => {
-            for (let i = 0, len = tasks.length; i < len; i++) {
-                if (tasks[i] === todo) {
-                    tasks.splice(i, 1);
-                    // break;
-                }
-            };
-            console.log(tasks);
-            
-            listTasks.innerHTML = "";
+        console.log(delButtons);
 
-            showTasks(tasks);
+        deleteButton.addEventListener("click", (e) => {
+            taskArea.innerHTML = "";
         })
     }
-};
+});
 
-showTasks(tasks);
+// function showTasks(todos) {
+//     for (let todo of todos) {
+//         console.log(todo);
+//         const task = document.createElement("p");
+//         task.innerText = todo;
+//         let newTask = document.createElement("div");
+//         let button = document.createElement(deleteButton);
+
+//         newTask.appendChild(task);
+//         task.appendChild(button);
+//         listTasks.appendChild(newTask);
+
+//     }
+// };
+
+let delButtons = document.getElementsByClassName("delete");
+
+delButtons.addEventListener("click", (e) => {
+    console.log("fsdfsdsf");
+})
+
+// showTasks(tasks);
