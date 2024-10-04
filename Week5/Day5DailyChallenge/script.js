@@ -25,21 +25,24 @@ function showTasks(todos) {
         console.log(todo);
         const taskArea = document.createElement("div");
         listTasks.appendChild(taskArea);
-        const task = document.createElement("p");
+        const task = document.createElement("label");
         task.innerText = todo;
 
         let deleteButton = document.createElement("button");
         deleteButton.classList.add("delete");
         deleteButton.innerText = "✖";
 
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+
         taskArea.appendChild(deleteButton);
+        taskArea.appendChild(checkbox);
         taskArea.appendChild(task);
 
         deleteButton.addEventListener("click", (e) => {
             for (let i = 0, len = tasks.length; i < len; i++) {
                 if (tasks[i] === todo) {
                     tasks.splice(i, 1);
-                    // break;
                 }
             };
             console.log(tasks);

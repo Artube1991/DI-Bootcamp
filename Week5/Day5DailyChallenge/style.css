@@ -1,0 +1,47 @@
+body {
+    background-color: lightcoral;
+    display: flex;
+    flex-direction: column;
+    font-size: larger;
+}
+
+h1 {
+    text-align: center;
+    color: whitesmoke;
+}
+
+#formpanel {
+    background-color: whitesmoke;
+    border: solid 1px b;
+    padding: 1vh;
+}
+
+#input, #button {
+    font-size: larger;
+    display: inline-block;
+    background-color: whitesmoke;
+    border: none;
+}
+
+#input {
+    width: 12em;
+}
+
+#button {
+    /* background-color: whitesmoke;
+    border: none; */
+}
+
+#main {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    font-size: larger;
+}
+
+.listTasks {
+    background-color: whitesmoke;
+    width: 22em;
+    padding: 1vh;
+
+}
