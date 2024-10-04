@@ -2,7 +2,8 @@ const tasks = ["Vanilla JavaScript", "Vue.js", "React.js", "Node.js"];
 
 let listTasks =  document.getElementsByClassName("listTasks")[0];
 let form = document.getElementById("form");
-console.log(form);
+
+let clear = document.getElementById("clear");
 
 
 form.addEventListener("submit", (e) => {
@@ -24,6 +25,7 @@ function showTasks(todos) {
     for (let todo of todos) {
         console.log(todo);
         const taskArea = document.createElement("div");
+        taskArea.classList.add("taskarea");
         listTasks.appendChild(taskArea);
         const task = document.createElement("label");
         task.innerText = todo;
@@ -53,5 +55,11 @@ function showTasks(todos) {
         })
     }
 };
+
+clear.addEventListener("click", (e) => {
+    tasks.length = 0;
+    listTasks.innerHTML = "";
+    showTasks(tasks);
+});
 
 showTasks(tasks);

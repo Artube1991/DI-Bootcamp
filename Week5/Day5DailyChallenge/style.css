@@ -1,5 +1,5 @@
 body {
-    background-color: lightcoral;
+    background-color: crimson;
     display: flex;
     flex-direction: column;
     font-size: larger;
@@ -13,7 +13,7 @@ h1 {
 #formpanel {
     background-color: whitesmoke;
     border: solid 1px b;
-    padding: 1vh;
+    padding: 3vh;
 }
 
 #input, #button {
@@ -24,15 +24,15 @@ h1 {
 }
 
 #input {
-    width: 12em;
+    width: 15em;
 }
 
 #button {
-    /* background-color: whitesmoke;
-    border: none; */
+    color: lightskyblue;
 }
 
 #main {
+    background-color: whitesmoke;
     display: flex;
     flex-direction: column;
     align-self: center;
@@ -40,8 +40,30 @@ h1 {
 }
 
 .listTasks {
-    background-color: whitesmoke;
-    width: 22em;
-    padding: 1vh;
+    width: 20em;
+    padding: 4vh;
+}
 
+.taskarea {
+    padding-bottom: 2vh;
+    margin-bottom: 3vh;
+    border-bottom: solid 2px lightskyblue;
+}
+
+.delete {
+    background-color: crimson;
+    color: whitesmoke;
+}
+
+#clear {
+    align-self: end;
+    font-size: larger;
+    color: crimson;
+    background-color: whitesmoke;
+    border: none;
+    margin: 3vh;
+}
+
+#clear:hover {
+    background-color: lightcoral;
 }
