@@ -1,5 +1,9 @@
 const array = ["day", "Maggie", "beautiful", "played", "Hogwarths"];
 
+let form = document.getElementById("libform");
+
+console.log(form.noun.value);
+
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -7,7 +11,12 @@ function getRandomInt(min, max) {
 }
 
 function newArr(arr) {
+    let arrayDefault = [];
     let arrRandom = [];
+
+    arrayDefault.push(form.noun.value);
+
+    console.log(arrayDefault);
 
     for (let i = arr.length - 1; i > -1; i--) {
         let numb = getRandomInt(0, arr.length);
