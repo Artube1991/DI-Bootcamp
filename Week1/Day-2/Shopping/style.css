@@ -1,7 +1,14 @@
-.navig {
-display: inline;
+nav {
+    background-color: black;
+    height: 4vh;
 }
 
-#link1 {
+#icon {
+color: white;
+}
+
+#link {
+color: white;
 position: absolute;
+right: 10px;
 }
