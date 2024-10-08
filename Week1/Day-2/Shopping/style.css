@@ -24,6 +24,8 @@ right: 10px;
 
 #product_image_1 {
     background-image: url("./media/image1.png");
+    background-repeat: no-repeat;
+    background-size:cover;
     height: 400px;
     width: 300px;
     padding: 10px;
@@ -54,4 +56,36 @@ right: 10px;
     text-align: center;
     display: table-cell;
     vertical-align: middle;
+}
+
+.description {
+    text-align: center;
+}
+
+.name {
+    font-size: large;
+}
+
+.price {
+    font-size: x-large;
+    color: green;
+}
+
+del {
+    font-size: large;
+    color: grey;
+}
+
+button {
+    font-size: large;
+    background-color: white;
+    color: grey;
+    font-weight: bold;
+    height: 55px;
+    width: 150px;
+    border-style: solid;
+}
+
+button:hover {
+    background-color: bisque;
 }
