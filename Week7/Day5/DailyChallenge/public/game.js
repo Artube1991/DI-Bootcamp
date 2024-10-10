@@ -1,8 +1,9 @@
 const url = "http://localhost:3000/emojis";
 
 const randomEmoji = document.getElementById("emoji");
-
 const form = document.getElementById("form");
+const button = document.getElementById("button");
+const message = document.getElementById("message");
 
 const gameScore = {
     total: 0,
@@ -19,7 +20,21 @@ const game = (req, res) => {
     .catch((error) => {
         console.log("The error is ", error);
     });
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let answer = e.target.answer.value;
+        console.log(answer);
+        fetch(`http://localhost:3000/emojis/${answer}`, { 
+            method: "POST", 
+            headers: { "Accept": "application/json", "Content-Type": "application/json" },
+            params: answer,
+        })
+        .then(response => response.json())
+        .then(data => message.innerText = data);
+    });
 };
+
 
 // const answer = (req, res) => {
 //     try {

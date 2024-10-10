@@ -40,7 +40,7 @@ form.addEventListener("submit", (e) => {
 
 
         arrayDefault.splice(numb, 1);
-        console.log("the arr cut ==", arr);
+        console.log("the arr cut ==", arrayDefault);
         
         console.log(arrRandom);
         };

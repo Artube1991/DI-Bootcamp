@@ -10,20 +10,22 @@
     <h1>Emojis Guessing Game</h1>
     <h2 id="emoji"><h2>
     <h3>What's the name of this emoji?</h3>
-    <form method="POST" action="http://localhost:3000/emojis/" id="form">
-        <input type="radio" name="Smile" value="Smile">
-        <label for="Smile">Smile</label><br>
-        <input type="radio" name="Dog" value="Dog">
-        <label for="Dog">Dog</label><br>
-        <input type="radio" name="Taco" value="Taco">
-        <label for="Taco">Taco</label><br>
-        <input type="radio" name="Lough" value="Lough">
-        <label for="Lough">Lough</label><br>
-        <input type="radio" name="Angry" value="Angry">
-        <label for="Angry">Angry</label><br>
-        <input type="radio" name="Whatever" value="Whatever">
-        <label for="Whatever">Whatever</label><br>
-        <button type="submit">ANSWER</button>
+    <form id="form">
+        <input type="radio" id="Smile" name="answer" value="Smile">
+        <label>Smile</label><br>
+        <input type="radio" id="Dog" name="answer" value="Dog">
+        <label>Dog</label><br>
+        <input type="radio" id="Taco" name="answer"  value="Taco">
+        <label>Taco</label><br>
+        <input type="radio" id="Lough" name="answer" value="Lough">
+        <label>Lough</label><br>
+        <input type="radio" id="Angry" name="answer" value="Angry">
+        <label>Angry</label><br>
+        <input type="radio" id="Whatever" name="answer" value="Whatever">
+        <label>Whatever</label><br>
+        <!-- <input type="text"> -->
+        <button id="button">ANSWER</button>
         </form>
+    <p id="message"></p>
 </body>
 </html>
