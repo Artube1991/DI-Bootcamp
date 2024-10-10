@@ -1,0 +1,18 @@
+{
+  "name": "w7d5dc",
+  "version": "1.0.1",
+  "description": "week 7 day 5 daily challenge - emojis",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "javascript"
+  ],
+  "author": "Aleksei Ivanov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
