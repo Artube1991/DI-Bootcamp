@@ -1,8 +1,9 @@
 .box {
     background-color: yellow;
-    width: 100px;
-    height: 100px;
-    margin: 4%;
+    width: 150px;
+    height: 150px;
+    margin: 5%;
+    border: solid 2px black;
 }
 
 #left {
@@ -14,7 +15,9 @@
 #center {
     display: flex;
     flex-direction: row;
+    width: 100%;
     align-self: center;
+    justify-content: center;
 
 }
 
@@ -27,4 +30,5 @@
 body {
     display: flex;
     flex-direction: row;
+    margin: 1%;
 }
