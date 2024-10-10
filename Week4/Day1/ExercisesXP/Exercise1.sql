@@ -10,7 +10,7 @@ create table customers(
 	last_name varchar
 )
 
-insert into items(first_name, last_name, birth_date)
+insert into items(item, price)
 values (
 	'Small Desk', '100'
 	),
@@ -19,6 +19,23 @@ values (
 	),
 
 (	'Fan', '80',
+	)
+
+insert into customers(first_name, last_name)
+values (
+	'Greg', 'Jones'
+	),
+
+(	'Sandra', 'Jones'
+	),
+
+(	'Scott', 'Scott',
+	),
+
+(	'Trevor', 'Green',
+	),
+
+(	'Melanie', 'Johnson',
 	)
 
 select * from items
