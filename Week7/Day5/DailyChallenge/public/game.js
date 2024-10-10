@@ -2,9 +2,16 @@ const url = "http://localhost:3000/emojis";
 
 const randomEmoji = document.getElementById("emoji");
 
-const game = () => {
+const form = document.getElementById("form");
+
+const gameScore = {
+    total: 0,
+    score: 0,
+  }
+
+const game = (req, res) => {
     fetch(url)
-    .then((res) = res.json())
+    .then((res) => res.json())
     .then((emojis) => {
         console.log(emojis.randomEmoji);
         randomEmoji.innerHTML = emojis.randomEmoji.emoji
@@ -13,5 +20,23 @@ const game = () => {
         console.log("The error is ", error);
     });
 };
+
+// const answer = (req, res) => {
+//     try {
+//         let answer = req.params.answer;
+//         if (answer === triviaQuestions[numberQuestion.number].answer) {
+//             gameScore.score++;
+//             res.status(201).json("Your answer is correct!")
+//         }
+//         else {
+//             res.status(404).json("You gave wrong answer!")
+//         }
+//         numberQuestion.number++;
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).json({error: "Internal server error"})
+//     }
+// }
+
 
 game();
