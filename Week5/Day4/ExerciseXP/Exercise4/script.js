@@ -11,6 +11,7 @@ const volume = document.getElementById("volume");
 
 myForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    let result = formula(radiusForm);
-    volume.innerText = result;
+    console.log(radiusForm.value);
+    let result = formula(radiusForm.value);
+    volume.value = result;
 });
