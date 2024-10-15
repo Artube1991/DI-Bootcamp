@@ -16,9 +16,8 @@ function anagramChecker(word, word2) {
     return true;
   };
 
-  
   console.log(anagramChecker("Astronomer", "Moon starer"));
   console.log(anagramChecker("School master", "The classroom"));
+  console.log(anagramChecker("School master", "The clasroom"));
   console.log(anagramChecker("The Morse Code", "Here come dots"));
-  console.log(anagramChecker(" Morse Code", "Here come dots"));
-  console.log(anagramChecker("TTT Morse Code", "Here come dots"));
+  console.log(anagramChecker("Morse Code", "Here come dots"));
