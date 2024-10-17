@@ -1,13 +1,12 @@
-* {
+body {
     font-family: "Libre Franklin", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color:beige;
   }
-
-body {background-color:beige;}
 
 .aside {
     grid-area: aside;
@@ -19,6 +18,9 @@ body {background-color:beige;}
 
 .article {
     margin: 20px;
+    /* display: flex;
+    flex-direction: row; */
+    justify-content: center;
 }
 
 .portrait {
