@@ -5,29 +5,33 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* flex-flow: row wrap; */
     background-color:beige;
     display: grid;
     grid-template-areas:
-    "aside outer outer outer"
-    "aside outer2 outer2 outer2"
-    "aside outer3 outer3 outer3"
+    "aside outer outer"
+    "aside outer2 outer2"
+    "aside outer3 outer3"
     ;
-    /* width: 100%; */
+    width: 100%;
+    overflow-x: hidden;
   }
 
 .aside {
     grid-area: aside;
     background-color: darkkhaki;
+    margin: 0;
     padding: 4%;
     text-align: center;
     width: 100%;
 }
 
 .article {
-    /* margin: 1%; */
+    margin: 1%;
+    padding: 1%;
+    justify-content: center;
     min-width: 300px;
     max-width: 1000px;
-    justify-content: center;
 }
 
 .portrait {
@@ -37,7 +41,7 @@ body {
 
 .outer, .outer2, .outer3 {
     font-size: 20px;
-    width: auto;
+    /* width: auto; */
     display: flex;
     flex-direction: row;
     justify-items: center;
@@ -72,7 +76,10 @@ body {
     grid-area: outer3;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+    width: auto;
+    /* max-width: 500px; */
 }
 
 .gallery {
@@ -114,11 +121,16 @@ body {
 
 @media only screen and (max-width: 700px) {
     body {
-    max-width: 700px;
+    max-width: 690px;
     min-width: 300px;
     display: flex;
     flex-direction: column;
     text-align: center;
+    flex-flow: row wrap;
+}
+
+.aside {
+    width: 800px;
 }
 
 .outer {
