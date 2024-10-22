@@ -5,32 +5,30 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* flex-flow: row wrap; */
     background-color:beige;
     display: grid;
     grid-template-areas:
-    "aside outer outer"
-    "aside outer2 outer2"
-    "aside outer3 outer3"
+    "aside personal personal"
+    "aside professional professional"
+    "aside works works"
     ;
-    width: 100%;
     overflow-x: hidden;
   }
 
 .aside {
     grid-area: aside;
     background-color: darkkhaki;
-    margin: 0;
     padding: 4%;
     text-align: center;
-    width: 100%;
+    overflow-x: hidden;
+    /* width: 100%; */
 }
 
 .article {
     margin: 1%;
     padding: 1%;
     justify-content: center;
-    min-width: 300px;
+    /* min-width: 50%; */
     max-width: 1000px;
 }
 
@@ -39,7 +37,7 @@ body {
 }
 
 
-.outer, .outer2, .outer3 {
+.personal, .professional, .works {
     font-size: 20px;
     /* width: auto; */
     display: flex;
@@ -48,7 +46,7 @@ body {
     max-height: auto;
 }
 
-.outer {
+.personal {
     grid-area: outer;   
     display: flex;
     flex-direction: row;
@@ -56,44 +54,41 @@ body {
 
 .one {
     grid-area: box1;
-    padding: 20px;
     width: 100%;
 }
 
 .two {
     grid-area: box2;
-    padding: 20px;
     width: 100%;
 }
 
-.outer2 {
-    grid-area: outer2;
+.professional {
+    grid-area: professional;
     display: flex;
     flex-direction: row;
 }
 
-.outer3 {
-    grid-area: outer3;
+.works {
+    grid-area: works;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     width: auto;
-    /* max-width: 500px; */
 }
 
-.gallery {
+.picture {
     margin: 5px;
     border: 1px solid #ccc;
     float: left;
     width: 250px;
   }
   
-.gallery:hover {
+.picture:hover {
     border: 3px solid #777;
   }
 
-.gallery img {
+.picture img {
     width: 240px;
     height: auto;
   }
@@ -105,13 +100,11 @@ body {
 
 .three {
     grid-area: box3;
-    padding: 20px;
     width: 100%;
 }
 
 .four {
     grid-area: box4;
-    padding: 20px;
     width: 100%;
 }
 
@@ -121,38 +114,52 @@ body {
 
 @media only screen and (max-width: 700px) {
     body {
-    max-width: 690px;
-    min-width: 300px;
     display: flex;
     flex-direction: column;
     text-align: center;
-    flex-flow: row wrap;
+    overflow-x: hidden;
 }
 
 .aside {
-    width: 800px;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-.outer {
+.article {
+    outline: 1px solid red;
+    padding: 5%;
+    /* margin: 3%; */
+    /* width: 100%; */
+    overflow-x: hidden;
+}
+
+.personal {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    margin: 0;
 }
 
-.outer2 {
+.professional {
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
 
-.outer3 {
+.works {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    margin: 0;
+}
+
+.three > ul {
+    text-align: left;
 }
 
 .one, .two, .three, .four {
-    width: 100%;
+    padding: 5%;
+    margin: 3%;
+    width: auto;
 }
 
 }
