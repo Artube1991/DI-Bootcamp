@@ -18,26 +18,23 @@ body {
 .aside {
     grid-area: aside;
     background-color: darkkhaki;
-    padding: 4%;
+    padding: 5%;
     text-align: center;
     overflow-x: hidden;
-    /* width: 100%; */
+    min-width: 200px;
 }
 
 .article {
     margin: 1%;
-    padding: 1%;
     justify-content: center;
-    /* min-width: 50%; */
-    max-width: 1000px;
+    max-width: 1100px;
 }
 
 .portrait {
     border-radius: 100%;
 }
 
-
-.personal, .professional, .works {
+.personal, .professional {
     font-size: 20px;
     /* width: auto; */
     display: flex;
@@ -55,11 +52,25 @@ body {
 .one {
     grid-area: box1;
     width: 100%;
+    padding: 1%;
 }
 
 .two {
     grid-area: box2;
     width: 100%;
+    padding: 1%;
+}
+
+.three {
+    grid-area: box3;
+    width: 100%;
+    padding: 1%;
+}
+
+.four {
+    grid-area: box4;
+    width: 100%;
+    padding: 1%;
 }
 
 .professional {
@@ -68,20 +79,21 @@ body {
     flex-direction: row;
 }
 
-.works {
+.gallery {
     grid-area: works;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: start;
     width: auto;
 }
 
 .picture {
-    margin: 5px;
+    margin: 2%;
     border: 1px solid #ccc;
     float: left;
-    width: 250px;
+    max-width: 500px;
+    height: 300px;
   }
   
 .picture:hover {
@@ -89,7 +101,7 @@ body {
   }
 
 .picture img {
-    width: 240px;
+    max-width: 450px;
     height: auto;
   }
   
@@ -98,22 +110,12 @@ body {
     text-align: center;
   }
 
-.three {
-    grid-area: box3;
-    width: 100%;
-}
-
-.four {
-    grid-area: box4;
-    width: 100%;
-}
-
 .greytext {
     color: grey;
 }
 
 @media only screen and (max-width: 700px) {
-    body {
+body {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -128,8 +130,6 @@ body {
 .article {
     outline: 1px solid red;
     padding: 5%;
-    /* margin: 3%; */
-    /* width: 100%; */
     overflow-x: hidden;
 }
 
@@ -157,8 +157,8 @@ body {
 }
 
 .one, .two, .three, .four {
-    padding: 5%;
-    margin: 3%;
+    /* padding: 5%;
+    margin: 3%; */
     width: auto;
 }
 
