@@ -1,0 +1,225 @@
+body {
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color:beige;
+    display: grid;
+    grid-template-areas:
+    "aside personal personal"
+    "aside professional professional"
+    "aside works works"
+    ;
+    overflow-x: hidden;
+  }
+
+.aside {
+    grid-area: aside;
+    background-color: darkkhaki;
+    padding: 5%;
+    text-align: center;
+    overflow-x: hidden;
+    min-width: 200px;
+}
+
+.article {
+    margin: 1%;
+    justify-content: center;
+    max-width: 1100px;
+}
+
+.portrait {
+    border-radius: 100%;
+}
+
+.personal, .professional {
+    font-size: 20px;
+    /* width: auto; */
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    max-height: auto;
+}
+
+.personal {
+    grid-area: outer;   
+    display: flex;
+    flex-direction: row;
+}
+
+.one {
+    grid-area: box1;
+    width: 100%;
+    padding: 1%;
+}
+
+.two {
+    grid-area: box2;
+    width: 100%;
+    padding: 1%;
+}
+
+.three {
+    grid-area: box3;
+    width: 100%;
+    padding: 1%;
+}
+
+.four {
+    grid-area: box4;
+    width: 100%;
+    padding: 1%;
+}
+
+.professional {
+    grid-area: professional;
+    display: flex;
+    flex-direction: row;
+}
+
+.gallery {
+    grid-area: works;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: auto;
+}
+
+/* .picture {
+    margin: 2%;
+    border: 1px solid #ccc;
+    float: left;
+    max-width: 500px;
+    height: 300px;
+  }
+  
+.picture:hover {
+    border: 3px solid #777;
+  }
+
+.picture img {
+    max-width: 450px;
+    height: auto;
+  }
+  
+.desc {
+    padding: 15px;
+    text-align: center;
+  } */
+
+.greytext {
+    color: grey;
+}
+
+@media only screen and (max-width: 700px) {
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.aside {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.article {
+    outline: 1px solid red;
+    padding: 5%;
+    overflow-x: hidden;
+}
+
+.personal {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.professional {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.works {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.three > ul {
+    text-align: left;
+}
+
+.one, .two, .three, .four {
+    /* padding: 5%;
+    margin: 3%; */
+    width: auto;
+}
+}
+
+/* HOVER EFFECTS */
+
+.hover-effect-btn {
+    position: relative;
+    justify-self: center;
+    width: 450px;
+  }
+
+.hover-effect-btn img {
+    width: 100%;
+}
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Настройка цвета и прозрачности для блока с заголовком */
+    transition: background 0.5s ease;
+  }
+  .hover-effect-btn:hover .overlay {
+    display: block;
+    background: rgba(0, 0, 0, 0.9); /* Настройка цвета и прозрачности для блока с заголовком при наведении */
+  }
+  .title {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 25%; /* Отступ сверху */
+    font-size: 20px; /* Размер текста заголовка */
+    text-align: center;
+    text-transform: uppercase; /* Заглавные буквы */
+    color: white; /* Цвет заголовка */
+    z-index: 1;
+    transition: top .5s ease;
+  }
+  .hover-effect-btn:hover .title {
+    top: 10%; /* Отступ сверху при наведении */
+  }
+  .button {
+    position: absolute;
+    width: 100%;
+    left:0;
+    top: 65%; /* Отступ сверху */
+    text-align: center;
+    opacity: 0;
+    transition: opacity .35s ease;
+  }
+  .button a {
+    padding: 15px 40px; /* Отступ */
+    text-align: center;
+    background: #ff921e; /* Цвет кнопки */
+    color: white; /* Цвет текста */
+    border: 1px solid white; /* Ширина, стиль и цвет границы */
+    z-index: 1; 
+  }
+  .hover-effect-btn:hover .button {
+    opacity: 1;
+  }
