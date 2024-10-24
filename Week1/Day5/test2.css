@@ -95,7 +95,7 @@ body {
 }
 
 /* BUTTON EFFECTS */
-.hide {
+.butt {
     padding: 1% 1% 0% 0%;
     width: 140px;
     color: currentColor;
@@ -104,13 +104,13 @@ body {
     cursor: pointer;
   }
   
-  .hide:hover,
-  .hide:focus-visible {
+  .butt:hover,
+  .butt:focus-visible {
     background-color: #f5cac3;
     /* background-color: #ff921e; */
   }
   
-  .info {
+  .menu {
     position: relative;
     display: block;
 
@@ -124,7 +124,7 @@ body {
     transition: line-height 0.5s, color 0.5s;
   }
   
-  .hide.active ~ .info {
+  .butt.active ~ .menu {
     line-height: 1.2;
     color: currentColor;
   }

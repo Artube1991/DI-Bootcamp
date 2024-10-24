@@ -1,13 +1,13 @@
-const button = document.querySelector('.butt');
-const menu = document.querySelector('.menu');
-const menuLinks = document.querySelectorAll('.menu-link');
+const button = document.querySelector('.hide');
+const info = document.querySelector('.info');
 
 function hide() {
-    menu.setAttribute('style', 'visibility: hidden');
+    info.setAttribute('style', 'visibility: hidden');
+    button.innerText = 'About →';
 }
 
 console.log(button);
-console.log(menu);
+console.log(info);
 
 button.addEventListener('click', (e) => {
   button.classList.toggle('active');
@@ -16,13 +16,13 @@ button.addEventListener('click', (e) => {
   if (button.classList.contains('active')) {
     button.setAttribute('aria-expanded', 'true');
     button.innerText = 'About ↓';
-    menu.setAttribute('style', 'visibility: visible; width: auto; height: auto');
-    menu.setAttribute('aria-hidden', 'false');
+    info.setAttribute('style', 'visibility: visible; width: auto; height: auto');
+    info.setAttribute('aria-hidden', 'false');
 
   } else {
     button.setAttribute('aria-expanded', 'false');
-    button.innerText = 'About →';
-    menu.setAttribute('aria-hidden', 'true');
-    setTimeout(hide, 503);
+    // button.innerText = 'About →';
+    info.setAttribute('aria-hidden', 'true');
+    setTimeout(hide, 455);
   }
 })
