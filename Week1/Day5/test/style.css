@@ -1,0 +1,149 @@
+body {
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color:beige;
+    display: grid;
+    grid-template-areas:
+    "aside personal personal"
+    "aside professional professional"
+    "aside works works"
+    ;
+    overflow-x: hidden;
+  }
+
+.aside {
+    grid-area: aside;
+    background-color: darkkhaki;
+    padding: 5%;
+    text-align: center;
+    overflow-x: hidden;
+    min-width: 200px;
+}
+
+.article {
+    margin: 1%;
+    justify-content: center;
+    max-width: 1100px;
+}
+
+.portrait {
+    border-radius: 100%;
+}
+
+.personal, .professional {
+    font-size: 20px;
+    /* width: auto; */
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    max-height: auto;
+}
+
+.personal {
+    grid-area: outer;   
+    display: flex;
+    flex-direction: row;
+}
+
+.one {
+    grid-area: box1;
+    width: 100%;
+    padding: 1%;
+}
+
+.two {
+    grid-area: box2;
+    width: 100%;
+    padding: 1%;
+}
+
+.three {
+    grid-area: box3;
+    width: 100%;
+    padding: 1%;
+}
+
+.four {
+    grid-area: box4;
+    width: 100%;
+    padding: 1%;
+}
+
+.professional {
+    grid-area: professional;
+    display: flex;
+    flex-direction: row;
+}
+
+.gallery {
+    grid-area: works;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+    width: auto;
+}
+
+.greytext {
+    color: grey;
+}
+
+@media only screen and (max-width: 700px) {
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.aside {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.aside > img {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.article {
+    outline: 1px solid red;
+    padding: 5%;
+    overflow-x: hidden;
+}
+
+.personal {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.professional {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.works {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.three > ul {
+    text-align: left;
+}
+
+.one, .two, .three, .four {
+    /* padding: 5%;
+    margin: 3%; */
+    width: auto;
+}
+
+}

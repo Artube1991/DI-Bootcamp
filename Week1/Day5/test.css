@@ -1,3 +1,5 @@
+/* MAIN STYLES */
+
 body {
     font-family: "Libre Franklin", sans-serif;
     font-optical-sizing: auto;
@@ -15,24 +17,28 @@ body {
     overflow-x: hidden;
   }
 
+/* ASIDE PANEL */
+
 .aside {
     grid-area: aside;
     background-color: darkkhaki;
-    padding: 5%;
+    padding: 7% 5%;
     text-align: center;
     overflow-x: hidden;
     min-width: 200px;
     min-height: 100%;
 }
 
-.article {
-    margin: 1%;
-    justify-content: center;
-    max-width: 1100px;
-}
-
 .portrait {
     border-radius: 100%;
+}
+
+/* PERSONAL INFROMATION STYLES */
+
+.article {
+    margin: 2%;
+    justify-content: center;
+    max-width: 1100px;
 }
 
 .personal, .professional {
@@ -46,6 +52,12 @@ body {
 
 .personal {
     grid-area: outer;   
+    display: flex;
+    flex-direction: row;
+}
+
+.professional {
+    grid-area: professional;
     display: flex;
     flex-direction: row;
 }
@@ -74,11 +86,7 @@ body {
     padding: 1%;
 }
 
-.professional {
-    grid-area: professional;
-    display: flex;
-    flex-direction: row;
-}
+/* WORKS SECTION STYLES */
 
 .gallery {
     grid-area: works;
@@ -89,9 +97,14 @@ body {
     width: auto;
 }
 
+/* OTHER STYLES */
 
 .greytext {
     color: grey;
+}
+
+.heading {
+    border-bottom: solid 1px grey;
 }
 
 /* BUTTON EFFECTS */
@@ -131,14 +144,14 @@ body {
 
 /* HOVER EFFECTS */
 
-.hover-effect-btn {
+.picture {
     position: relative;
     max-width: 50%;
     min-width: 450px;
     margin: 2%;
   }
 
-.hover-effect-btn img {
+.picture img {
     width: 450px;
 }
   
@@ -151,7 +164,7 @@ body {
     background: rgba(0, 0, 0, 0.3); 
     transition: background 0.5s ease;
   }
-  .hover-effect-btn:hover .overlay {
+  .picture:hover .overlay {
     display: block;
     background: rgba(0, 0, 0, 0.8); 
   }
@@ -167,7 +180,7 @@ body {
     z-index: 1;
     transition: top .5s ease;
   }
-  .hover-effect-btn:hover .title {
+  .picture:hover .title {
     top: 10%;
   }
   .button {
@@ -187,7 +200,7 @@ body {
     border: 1px solid white; 
     z-index: 1; 
   }
-  .hover-effect-btn:hover .button {
+  .picture:hover .button {
     opacity: 1;
   }
 
@@ -202,6 +215,7 @@ body {
 }
 
 .aside {
+    padding: 3%;
     max-width: 100%;
     max-height: auto;
     overflow-x: hidden;
@@ -244,13 +258,13 @@ body {
     width: auto;
 }
 
-.hover-effect-btn {
+.picture {
     max-width: 380px;
     min-width: 300px;
 
   }
 
-.hover-effect-btn img {
+.picture img {
     width: 380px;
 }
 
