@@ -96,24 +96,23 @@ body {
 
 /* BUTTON EFFECTS */
 .butt {
-    inline-size: 100%;
-    padding: 0.5lh 1.5lh;
-    font: inherit;
+    padding: 1% 1% 0% 0%;
+    width: 140px;
     color: currentColor;
-    background-color: #f28482;
-    border: none;
+    /* background-color: #ff921e; */
+    border-bottom: dotted 3px;
     cursor: pointer;
   }
   
   .butt:hover,
   .butt:focus-visible {
     background-color: #f5cac3;
+    /* background-color: #ff921e; */
   }
   
   .menu {
     position: relative;
     display: block;
-    margin-block-start: 0.5lh;
 
     width: 0;
     height: 0;
@@ -123,20 +122,6 @@ body {
     line-height: 0;
     color: transparent;
     transition: line-height 0.5s, color 0.5s;
-  }
-  
-  .menu-item {
-    overflow: hidden;
-  }
-  
-  .menu-link {
-    display: block;
-    padding: 0.5lh 80px;
-  }
-  
-  .menu-link:hover,
-  .menu-link:focus-visible {
-    background-color: #f5cac3;
   }
   
   .butt.active ~ .menu {
@@ -225,6 +210,13 @@ body {
 .article {
     padding: 5%;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.butt {
+    position: fixed;
 }
 
 .personal {

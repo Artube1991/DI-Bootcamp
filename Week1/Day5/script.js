@@ -15,11 +15,13 @@ button.addEventListener('click', (e) => {
 
   if (button.classList.contains('active')) {
     button.setAttribute('aria-expanded', 'true');
+    button.innerText = 'About ↓';
     menu.setAttribute('style', 'visibility: visible; width: auto; height: auto');
     menu.setAttribute('aria-hidden', 'false');
 
   } else {
     button.setAttribute('aria-expanded', 'false');
+    button.innerText = 'About →';
     menu.setAttribute('aria-hidden', 'true');
     setTimeout(hide, 503);
   }
