@@ -49,25 +49,25 @@ body {
     flex-direction: row;
 }
 
-.one {
+.profile {
     grid-area: box1;
     width: 100%;
     padding: 1%;
 }
 
-.two {
+.educaction {
     grid-area: box2;
     width: 100%;
     padding: 1%;
 }
 
-.three {
+.skills {
     grid-area: box3;
     width: 100%;
     padding: 1%;
 }
 
-.four {
+.experience {
     grid-area: box4;
     width: 100%;
     padding: 1%;
@@ -88,80 +88,57 @@ body {
     width: auto;
 }
 
-/* .picture {
-    margin: 2%;
-    border: 1px solid #ccc;
-    float: left;
-    max-width: 500px;
-    height: 300px;
-  }
-  
-.picture:hover {
-    border: 3px solid #777;
-  }
-
-.picture img {
-    max-width: 450px;
-    height: auto;
-  }
-  
-.desc {
-    padding: 15px;
-    text-align: center;
-  } */
 
 .greytext {
     color: grey;
 }
 
-@media only screen and (max-width: 700px) {
-body {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    overflow-x: hidden;
-}
-
-.aside {
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
-.article {
-    outline: 1px solid red;
-    padding: 5%;
-    overflow-x: hidden;
-}
-
-.personal {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-}
-
-.professional {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-}
-
-.works {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0;
-}
-
-.three > ul {
-    text-align: left;
-}
-
-.one, .two, .three, .four {
-    /* padding: 5%;
-    margin: 3%; */
-    width: auto;
-}
-}
+/* BUTTON EFFECTS */
+.butt {
+    inline-size: 100%;
+    padding: 0.5lh 1.5lh;
+    font: inherit;
+    color: currentColor;
+    background-color: #f28482;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .butt:hover,
+  .butt:focus-visible {
+    background-color: #f5cac3;
+  }
+  
+  .menu {
+    position: relative;
+    display: block;
+    margin-block-start: 0.5lh;
+    background-color: #f28482;
+  
+    overflow: hidden;
+    line-height: 0;
+    color: transparent;
+    transition: line-height 0.5s, color 0.5s;
+  }
+  
+  .menu-item {
+    overflow: hidden;
+  }
+  
+  .menu-link {
+    display: block;
+    padding: 0.5lh 80px;
+  }
+  
+  .menu-link:hover,
+  .menu-link:focus-visible {
+    background-color: #f5cac3;
+  }
+  
+  .butt.active ~ .menu {
+    line-height: 1.2;
+    color: currentColor;
+  }
 
 /* HOVER EFFECTS */
 
@@ -182,45 +159,107 @@ body {
     left: 0;
     width: 100%;
     height: 98.2%;
-    background: rgba(0, 0, 0, 0.3); /* Настройка цвета и прозрачности для блока с заголовком */
+    background: rgba(0, 0, 0, 0.3); 
     transition: background 0.5s ease;
   }
   .hover-effect-btn:hover .overlay {
     display: block;
-    background: rgba(0, 0, 0, 0.8); /* Настройка цвета и прозрачности для блока с заголовком при наведении */
+    background: rgba(0, 0, 0, 0.8); 
   }
   .title {
     position: absolute;
     width: 100%;
     left: 0;
-    top: 25%; /* Отступ сверху */
-    font-size: 20px; /* Размер текста заголовка */
+    top: 25%; 
+    font-size: 20px;
     text-align: center;
-    text-transform: uppercase; /* Заглавные буквы */
-    color: white; /* Цвет заголовка */
+    text-transform: uppercase; 
+    color: white; 
     z-index: 1;
     transition: top .5s ease;
   }
   .hover-effect-btn:hover .title {
-    top: 10%; /* Отступ сверху при наведении */
+    top: 10%;
   }
   .button {
     position: absolute;
     width: 100%;
     left:0;
-    top: 65%; /* Отступ сверху */
+    top: 65%;
     text-align: center;
     opacity: 0;
     transition: opacity .35s ease;
   }
   .button a {
-    padding: 15px 40px; /* Отступ */
+    padding: 15px 40px;
     text-align: center;
-    background: #ff921e; /* Цвет кнопки */
-    color: white; /* Цвет текста */
-    border: 1px solid white; /* Ширина, стиль и цвет границы */
+    background: #ff921e; 
+    color: white;
+    border: 1px solid white; 
     z-index: 1; 
   }
   .hover-effect-btn:hover .button {
     opacity: 1;
   }
+
+/* FOR MOBILE SCREENS */
+
+@media only screen and (max-width: 700px) {
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.aside {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.article {
+    padding: 5%;
+    overflow-x: hidden;
+}
+
+.personal {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.professional {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+.works, .gallery {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin: 0;
+}
+
+.skills > ul {
+    text-align: left;
+}
+
+.profile, .educaction, .skills, .experience {
+    /* padding: 5%;
+    margin: 3%; */
+    width: auto;
+}
+
+.hover-effect-btn {
+    max-width: 380px;
+    min-width: 300px;
+
+  }
+
+.hover-effect-btn img {
+    width: 380px;
+}
+
+}
+
