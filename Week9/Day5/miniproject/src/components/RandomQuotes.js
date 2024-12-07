@@ -55,7 +55,6 @@ class Quotes extends React.Component {
             author: randomAuthor,
             color: randomColor,
          });
-
         // moving();
     }
 
