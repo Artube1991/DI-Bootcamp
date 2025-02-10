@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    padding: 1%;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+ul {
+    position: absolute;
+    right: 5%;
+}
+
+li {
+    float: left;
+    list-style: none;
+    width: 200px;
+    text-align: center;
+    font-size: xx-large;
+}
+
+p {
+    width: 40%;
+}
